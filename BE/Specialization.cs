@@ -18,7 +18,7 @@ namespace BE
         {
             return Field + " " + SpecializationName + " " + SpecializationID;
         }
-        object ICloneable.Clone()
+        public object Clone()
         {
             Specialization s = new Specialization();
             s.SpecializationID = (int)SpecializationID;

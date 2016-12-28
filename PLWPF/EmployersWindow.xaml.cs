@@ -29,7 +29,7 @@ namespace PLWPF
         {
             InitializeComponent();
 
-            #region enumerators in the window
+            #region ItemsSources in the window
             AddEmpChooseField.ItemsSource = Enum.GetValues(typeof(SpecializationField)).Cast<SpecializationField>().ToList();
             UpdateEmpChooseField.ItemsSource = Enum.GetValues(typeof(SpecializationField)).Cast<SpecializationField>().ToList();
             ChooseEmployerToRemove.ItemsSource = bl.GetEmployerList();
@@ -107,7 +107,7 @@ namespace PLWPF
             try
             {
                 int temp = -1;
-                BE.Employer boss = (Employer)((Employer)ChooseEmployerToUpdate.SelectedItem).Clone();
+                Employer boss = (Employer)((Employer)ChooseEmployerToUpdate.SelectedItem).Clone();
                 
                 #region check if entered critical information
                 if (ChooseEmployerToUpdate.SelectedIndex == -1)

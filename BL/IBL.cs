@@ -13,7 +13,7 @@ namespace BL
         bool WorkerOldEnough(Employee emp);
         bool InTheSystem(string worker, string boss);
         bool CompanyOldEnough(Employer company);
-        double CalcWorkerNetSalary(string workerID, string bossID, Contract contract);
+        double CalcWorkerNetSalary(Contract contract);
         List<Contract> GetAllContracts(Predicate<Contract> match);
         int GetNumOfContracts(Predicate<Contract> match);
 

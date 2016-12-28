@@ -8,7 +8,8 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"              
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-    Title="Employees Window" Height="500" Width="800" >
+        Icon="engineer.png"
+    Title="Employees" Height="500" Width="800" >
 
     <TabControl>
 
@@ -17,7 +18,7 @@
             <StackPanel>
 
                 <TextBlock/>
-                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="&#x9;This is the employees window."/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="This is the employees window."/>
                 <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="Here you will be able to add more employees, remove, and update existing ones."/>
                 <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="In the 'Find by' tab you will be able to sort employees and get groups that match your features."/>
                 <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="Please note that when updating an employee, not all the fields will be open to change,"/>
@@ -47,7 +48,8 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock
                     Grid.Row="0"
@@ -96,20 +98,22 @@
                 <Controls:SplitButton x:Name="ChooseSpec" Grid.Row="11" Grid.Column="1"/>
 
 
-                <Button x:Name="AddEmpButton" Content="ADD"  Grid.Row="12" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
+                <Button x:Name="AddEmpButton" Content="ADD"  Grid.Row="13" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
             </Grid>
 
         </TabItem>
         <TabItem Header="Remove">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="Choose employee to delete: "/>
-                <Controls:SplitButton x:Name="ChooseEmployeeToRemove" Grid.Row="1"/>
-                <Button x:Name="RemoveEmpButton" Content="REMOVE"  Grid.Row="2"  Style="{DynamicResource SquareButtonStyle}" FontSize="30" FontWeight="Bold" Click="Remove_Click" />
+                <Controls:SplitButton x:Name="ChooseEmployeeToRemove" Grid.Row="2"/>
+                <Button x:Name="RemoveEmpButton" Content="REMOVE"  Grid.Row="4"  Style="{DynamicResource SquareButtonStyle}" FontSize="30" FontWeight="Bold" Click="Remove_Click" />
 
             </Grid>
         </TabItem>
@@ -120,8 +124,6 @@
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="*"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -133,7 +135,9 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
 
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"  FontSize="30" FontFamily="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Text="Choose employee to update: "/>
@@ -144,9 +148,6 @@
 
                 <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee last name: " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
                 <TextBox x:Name="UpdatedEmpLastName" Grid.Row="3" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee last name here..." />
-
-
-
 
                 <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Phone number:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
                 <TextBox x:Name="UpdatedEmpPhoneNumber" Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee phone number here..." />
@@ -176,11 +177,11 @@
                 <Controls:SplitButton x:Name="ChooseUpdatedSpec" Grid.Row="11" Grid.Column="1"/>
 
 
-                <Button x:Name="UpdatedEmpButton" Content="UPDATE"  Grid.Row="12" Grid.ColumnSpan="2" Grid.RowSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Update_Click"/>
+                <Button x:Name="UpdatedEmpButton" Content="UPDATE"  Grid.Row="13" Grid.ColumnSpan="2" Grid.RowSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Update_Click"/>
             </Grid>
 
         </TabItem>
-        <TabItem Header="Find by">
+        <TabItem Header="Group By">
         </TabItem>
 
 

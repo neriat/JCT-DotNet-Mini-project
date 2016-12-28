@@ -22,9 +22,9 @@ namespace BE
         public double WorkingHours { get; set; }
         public override string ToString()
         {
-            return "Not implemeneted yet!!!";
+            return "Contract No. " + ContractID + " with " + EmployerID + " and " + EmployeeID + " from " + StartDate.ToString("dd/MM/yyyy") + " to " + EndDate.ToString("dd/MM/yyyy");
         }
-        object ICloneable.Clone()
+        public object Clone()
         {
             Contract c = new Contract();
 

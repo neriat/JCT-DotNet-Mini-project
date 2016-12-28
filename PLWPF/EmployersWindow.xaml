@@ -8,7 +8,8 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"              
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-    Title="Employers Window" Height="500" Width="800" >
+        Icon="boss.png"
+    Title="Employers" Height="500" Width="800" >
 
     <TabControl>
 
@@ -45,7 +46,8 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <Controls:ToggleSwitch x:Name="AddEmpBusinessType" Grid.Row="0" Grid.Column="1" IsChecked="True" OnLabel="Enterprise" OffLabel="Private business"/>
                 <TextBlock Grid.Row="0" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Type of business:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
@@ -84,29 +86,22 @@
                 <TextBlock Grid.Row="8" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Establishment date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
                 <DatePicker x:Name="AddEmpEstablishmentDates" Grid.Row="8" Grid.Column="1"/>
 
-
-
-
-
-
-
-
-
-
-                <Button Content="ADD"  Grid.Row="11" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
+                <Button Content="ADD"  Grid.Row="12" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
             </Grid>
 
         </TabItem>
         <TabItem Header="Remove">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="Choose employer to delete: "/>
-                <Controls:SplitButton x:Name="ChooseEmployerToRemove" Grid.Row="1"/>
-                <Button Content="REMOVE"  Grid.Row="2"  Style="{DynamicResource SquareButtonStyle}" FontSize="30" FontWeight="Bold" Click="Remove_Click" />
+                <Controls:SplitButton x:Name="ChooseEmployerToRemove" Grid.Row="2"/>
+                <Button Content="REMOVE"  Grid.Row="4"  Style="{DynamicResource SquareButtonStyle}" FontSize="30" FontWeight="Bold" Click="Remove_Click" />
 
             </Grid>
         </TabItem>
@@ -127,7 +122,8 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontFamily="Yu Gothic Medium" VerticalAlignment="Center" FontSize="18" TextDecorations="Underline" Text="Choose employer to delete: "/>
                 <Controls:SplitButton x:Name="ChooseEmployerToUpdate" Grid.Row="0" Grid.Column="1"/>
@@ -169,11 +165,11 @@
                 <DatePicker x:Name="UpdateEmpEstablishmentDate" Grid.Row="9" Grid.Column="1"/>
             
 
-            <Button Content="UPDATE"  Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Update_Click"/>
+            <Button Content="UPDATE"  Grid.Row="11" Grid.ColumnSpan="2" Grid.RowSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Update_Click"/>
             </Grid>
 
         </TabItem>
-        <TabItem Header="Find by">
+        <TabItem Header="Group By">
         </TabItem>
 
 

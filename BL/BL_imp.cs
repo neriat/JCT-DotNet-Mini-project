@@ -78,13 +78,13 @@ namespace BL
         /// <param name="bossID">Employer ID</param>
         /// <param name="contract">Contract type</param>
         /// <returns>Net salary after humam-resources fee</returns>
-        public double CalcWorkerNetSalary(string workerID, string bossID, Contract contract)
+        public double CalcWorkerNetSalary(Contract contract)
         {
             // the net salary goes like that:
             //  (gross salary) - (boss fee based on number of employers under him)*(1.01 -if the worker isn't IDF vetern)/(num of deals worker did + 1) -(-10% -boss gain)
             //  boss fee: starts at 40. downby .7 for every signed contract. state at 4
-            Employee worker = data.FindWorker(workerID);
-            Employer boss = data.FindBoss(bossID);
+            Employee worker = data.FindWorker(contract.EmployeeID);
+            Employer boss = data.FindBoss(contract.EmployerID);
 
             double armyDiscount = 1.01; //default mode
             if (worker.Veteran) armyDiscount = 1;
@@ -100,7 +100,7 @@ namespace BL
             //NOT IMPLEMENTED YET
             var qr = from item in GetContractList()
                      where item.EmployerID == bossID
-                     select CalcWorkerNetSalary(item.EmployeeID, bossID, item) / 0.9;
+                     select item.NetSalary / 0.9;
             return qr.Sum();
         }
         #endregion
@@ -247,7 +247,7 @@ namespace BL
                    where int.Parse(item.EmployerID) == bossID
                    where item.StartDate >= begin && item.EndDate <= end
                    orderby order ? item.StartDate.Year : 0
-                   group CalcWorkerNetSalary(worker.ID, bossID.ToString(), item) / 0.9 by item.StartDate.Year;
+                   group item.NetSalary / 0.9 by item.StartDate.Year;
         }
         public IEnumerable<IGrouping<int, double>> GroupGainByStartYear(int bossID, bool order = false)
         {

@@ -29,39 +29,174 @@ namespace PLWPF
         public ContractsWindow()
         {
             InitializeComponent();
-
+            listView.ItemsSource = bl.GroupContractBySpec();
+            // SimpleGrid.ItemsSource = bl.GroupContractBySpec();
             ChooseEmployeeForDeal.ItemsSource = bl.GetEmployeeList();
             ChooseEmployerForDeal.ItemsSource = bl.GetEmployerList();
             ChooseContractToRemove.ItemsSource = bl.GetContractList();
             ChooseContractToUpdate.ItemsSource = bl.GetContractList();
+
         }
 
 
         private void Add_Click(object sender, RoutedEventArgs e)
         {
-            ErrorFlyout.Header = "Couldn't add employee, probably your mistake, fix it...";
-            ErrorFlyout.IsOpen = true;
+            try
+            {
+                Contract c = new Contract();
+                if (
+                    ChooseEmployeeForDeal.SelectedIndex == -1 ||
+                    ChooseEmployerForDeal.SelectedIndex == -1 ||
+                    AddContractEndingDate.SelectedDate == null ||
+                    AddContractStartingDate.SelectedDate == null ||
+                    AddGrossSalary.Text == ""
+                    )
+                    throw new Exception("All fields must be filled");
+
+                c.ContractID = 0;
+                c.EmployeeID = ((Employee)ChooseEmployeeForDeal.SelectedItem).ID;
+                c.EmployerID = ((Employer)ChooseEmployerForDeal.SelectedItem).ID;
+                c.EndDate = (DateTime)AddContractEndingDate.SelectedDate;
+                c.StartDate = (DateTime)AddContractStartingDate.SelectedDate;
+
+
+                try
+                {
+                    c.GrossSalary = double.Parse(AddGrossSalary.Text);
+
+                }
+                catch (Exception)
+                {
+                    throw new Exception("Salary must have a numeric value");
+                }
+                try
+                {
+                    c.WorkingHours = double.Parse(AddWorkingHours.Text);
+                }
+                catch (Exception)
+                {
+                    throw new Exception("The amount of working hours must have a numeric value");
+                }
+                if (double.Parse(AddGrossSalary.Text) < 0)
+                    throw new Exception("Salary can't be negative, nice try");
+                if (double.Parse(AddWorkingHours.Text) < 0)
+                    throw new Exception("Testing the system uh? working hours can't be negative");
+
+                c.IsInterviewed = (bool)AddWasInterviewed.IsChecked;
+                c.IsSigned = (bool)AddIsContractSigned.IsChecked;
+                c.NetSalary = bl.CalcWorkerNetSalary(c);
+
+                bl.AddContract(c);
+
+                this.ShowMessageAsync("New contract was added successfully!", "Pleasure to do business with you.");
+
+
+            }
+            catch (Exception c)
+            {
+                ErrorFlyout.Header = c.Message;
+                ErrorFlyout.IsOpen = true;
+            }
+
+
+
+
+
+
+
+
+
+            //ErrorFlyout.Header = "Couldn't add employee, probably your mistake, fix it...";
+            //ErrorFlyout.IsOpen = true;
             //  this.ShowMessageAsync("New employee was added successfully!", "Not really, though, just testing things out.");
         }
 
         private void Remove_Click(object sender, RoutedEventArgs e)
         {
-            ErrorFlyout.Header = "Not going to delete this employee, deal with it...";
-            ErrorFlyout.IsOpen = true;
+            try
+            {
+                if (ChooseContractToRemove.SelectedIndex == -1)
+                    throw new Exception("What exactly do you want me too remove, uh? moron...");
+                string messege = "Contract number " + ((Contract)ChooseContractToRemove.SelectedItem).ContractID.ToString();
+                bl.RemoveContract(((Contract)ChooseContractToRemove.SelectedItem).ContractID);
+                this.ShowMessageAsync(messege + " was removed successfuly", "Good job, you chose wisly");
+
+
+            }
+            catch (Exception c)
+            {
+                ErrorFlyout.Header = c.Message;
+                ErrorFlyout.IsOpen = true;
+            }
         }
 
         private void Update_Click(object sender, RoutedEventArgs e)
         {
-            Contract worker;
-            try { worker = bl.GetContractList()[ChooseContractToUpdate.SelectedIndex]; }
-            catch { worker = null; }
-            if (worker != null)
-                this.ShowMessageAsync("Contract" + " " + "blablala" + " was updated successfully!", "Not really, though, just testing things out.");
-            else
+            try
             {
-                ErrorFlyout.Header = "Who do you expect me to update, uh? moron...";
+
+                if (ChooseContractToUpdate.SelectedIndex == -1)
+                    throw new Exception("Choose something moron");
+
+                Contract c = (Contract)((Contract)ChooseContractToUpdate.SelectedItem).Clone();
+
+                bool TypeChangedValueSigned = UpdateIsSinged.IsChecked == c.IsSigned ? false : true;
+                bool TypeChangedValueInterviewed = UpdateWasInterviewed.IsChecked == c.IsInterviewed ? false : true;
+                if (
+                    AddContractEndingDate.SelectedDate == null &&
+                    AddGrossSalary.Text == "" &&
+                    !TypeChangedValueSigned &&
+                    !TypeChangedValueInterviewed
+                    )
+                    throw new Exception("I updated successfully. nothing.");
+
+
+
+                if (UpdatedContractEndingDate.SelectedDate != null)
+                    c.EndDate = (DateTime)UpdatedContractEndingDate.SelectedDate;
+
+                c.IsInterviewed = (bool)UpdateWasInterviewed.IsChecked;
+                c.IsSigned = (bool)UpdateIsSinged.IsChecked;
+
+                if (UpdateWorkingHours.Text != "")
+                {
+                    try
+                    {
+                        c.WorkingHours = double.Parse(UpdateWorkingHours.Text);
+                    }
+                    catch (Exception)
+                    {
+                        throw new Exception("The amount of working hours must have a numeric value");
+                    }
+                }
+
+                if (UpdateGrossSalary.Text != "")
+                {
+                    try
+                    {
+                        c.GrossSalary = double.Parse(UpdateGrossSalary.Text);
+
+                    }
+                    catch (Exception)
+                    {
+                        throw new Exception("Salary must have a numeric value");
+                    }
+                    c.NetSalary = bl.CalcWorkerNetSalary(c);
+
+                }
+
+                bl.UpdateContract(c);
+                string messege = "Contract number " + ((Contract)ChooseContractToUpdate.SelectedItem).ContractID.ToString();
+                this.ShowMessageAsync(messege + " was updated successfuly", "Nice updating skills you got there");
+
+
+            }
+            catch (Exception c)
+            {
+                ErrorFlyout.Header = c.Message;
                 ErrorFlyout.IsOpen = true;
             }
+
         }
 
 

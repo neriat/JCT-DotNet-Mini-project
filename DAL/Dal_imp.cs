@@ -199,28 +199,28 @@ namespace DAL
         /// <returns>specializations binding in list</returns>
         public List<Specialization> GetSpecializationList()
         {
-            List<Specialization> spec = new List<Specialization>();
-            Specialization a = new Specialization();
-            a.SpecializationName = "Hello";
-            spec.Add(a);
+            //List<Specialization> spec = new List<Specialization>();
+            //Specialization a = new Specialization();
+            //a.SpecializationName = "Hello";
+            //spec.Add(a);
 
-            a = new Specialization();
-            a.SpecializationName = "From";
-            spec.Add(a);
+            //a = new Specialization();
+            //a.SpecializationName = "From";
+            //spec.Add(a);
 
-            a = new Specialization();
-            a.SpecializationName = "The";
-            spec.Add(a);
+            //a = new Specialization();
+            //a.SpecializationName = "The";
+            //spec.Add(a);
 
-            a = new Specialization();
-            a.SpecializationName = "Other";
-            spec.Add(a);
-            a = new Specialization();
-            a.SpecializationName = "Side";
-            spec.Add(a);
+            //a = new Specialization();
+            //a.SpecializationName = "Other";
+            //spec.Add(a);
+            //a = new Specialization();
+            //a.SpecializationName = "Side";
+            //spec.Add(a);
 
-            return spec;
-            // return DataSource.SpecializationList;
+            //return spec;
+            return DataSource.SpecializationList;
         }
         /// <summary>
         /// The function gets access to data structure and extract the branches
