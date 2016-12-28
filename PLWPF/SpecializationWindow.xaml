@@ -7,8 +7,9 @@
         xmlns:fsxaml="http://github.com/fsprojects/FsXaml"
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"              
         mc:Ignorable="d"
-        WindowStartupLocation="CenterScreen"
-        Title="Specialization Window" Height="500" Width="800">
+        WindowStartupLocation="CenterScreen" 
+        Icon="tools.png"
+        Title="Specialization" Height="500" Width="800">
     <TabControl>
         <TabItem Header="Descreption">
             <StackPanel>
@@ -16,7 +17,7 @@
                 <TextBlock
                     FontSize="18" 
                     FontFamily="Yu Gothic Medium" 
-                    Text="&#x9;This is the specialization window."/>
+                    Text="This is the specialization window."/>
                 <TextBlock 
                     FontSize="18" 
                     FontFamily="Yu Gothic Medium" 
@@ -46,7 +47,8 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock
                     Grid.Row="0"
@@ -57,7 +59,7 @@
                     FontSize="18" 
                     TextDecorations="Underline"
                     />
-                <TextBox
+                <TextBox x:Name="AddSpecializationName"
                     Grid.Row="0" 
                     Grid.Column="1" 
                     Controls:TextBoxHelper.ClearTextButton="True" 
@@ -84,7 +86,7 @@
                     FontWeight="Bold" 
                     FontSize="18" 
                     TextDecorations="Underline"/>
-                <TextBox
+                <TextBox x:Name="AddMinSalary"
                     Grid.Row="2" 
                     Grid.Column="1" 
                     Controls:TextBoxHelper.ClearTextButton="True" 
@@ -98,7 +100,7 @@
                     FontWeight="Bold" 
                     FontSize="18" 
                     TextDecorations="Underline"/>
-                <TextBox
+                <TextBox x:Name="AddMaxSalary"
                     Grid.Row="3" 
                     Grid.Column="1" 
                     Controls:TextBoxHelper.ClearTextButton="True" 
@@ -106,7 +108,7 @@
 
                 <Button 
                     Content="ADD"  
-                    Grid.Row="4" 
+                    Grid.Row="5" 
                     Grid.ColumnSpan="2"  
                     Style="{DynamicResource SquareButtonStyle}" 
                     Click="Add_Click"
@@ -120,38 +122,22 @@
 
             <Grid>
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition Width="auto"/>
-                    <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="18"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    FontFamily="Yu Gothic Medium" 
-                    Text="Specialization ID:    " 
-                    FontWeight="Bold" 
-                    FontSize="18" 
-                    TextDecorations="Underline"
-                    />
-                <TextBox
-                    Grid.Row="0" 
-                    Grid.Column="1" 
-                    Controls:TextBoxHelper.ClearTextButton="True" 
-                    Controls:TextBoxHelper.Watermark="Enter specialization id you want remove from database .  .  .  if you're not sure what is the specialization id, please use 'Find by' tab"/>
+
+                <TextBlock Grid.Row="0"  HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Text="Choose specialization to delete: "/>
+                <Controls:SplitButton x:Name="ChooseSpecializationToRemove" Grid.Row="1"/>
+
 
                 <Button 
                     Content="REMOVE"  
-                    Grid.Row="2" 
-                    Grid.ColumnSpan="2"  
+                    Grid.Row="3"                     
                     Style="{DynamicResource SquareButtonStyle}" 
                     Click="Remove_Click"
                     FontWeight="Bold" 
@@ -167,29 +153,17 @@
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="18"/>
                     <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="auto"/>
-                    <RowDefinition Height="*"/>
                 </Grid.RowDefinitions>
 
-                <TextBlock
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    FontFamily="Yu Gothic Medium" 
-                    Text="Specialization ID:    " 
-                    FontWeight="Bold" 
-                    FontSize="18" 
-                    TextDecorations="Underline"
-                    />
-                <TextBox
-                    Grid.Row="0" 
-                    Grid.Column="1" 
-                    Controls:TextBoxHelper.ClearTextButton="True" 
-                    Controls:TextBoxHelper.Watermark="Enter specialization id you want update in database .  .  .  if you're not sure what is the specialization id, please use 'Find by' tab"/>
-
+                <TextBlock Grid.Row="0" Grid.ColumnSpan="2" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" Text="Choose specialization to update: "/>
+                <Controls:SplitButton x:Name="ChooseSpecializationToUpdate" Grid.Row="1" Grid.ColumnSpan="2"/>
 
                 <TextBlock
                     Grid.Row="2"
@@ -200,7 +174,7 @@
                     FontSize="18" 
                     TextDecorations="Underline"
                     />
-                <TextBox
+                <TextBox x:Name="UpdateSpecializationName"
                     Grid.Row="2" 
                     Grid.Column="1" 
                     Controls:TextBoxHelper.ClearTextButton="True" 
@@ -227,7 +201,7 @@
                     FontWeight="Bold" 
                     FontSize="18" 
                     TextDecorations="Underline"/>
-                <TextBox
+                <TextBox x:Name="UpdateMinSalary"
                     Grid.Row="4" 
                     Grid.Column="1" 
                     Controls:TextBoxHelper.ClearTextButton="True" 
@@ -241,14 +215,14 @@
                     FontWeight="Bold" 
                     FontSize="18" 
                     TextDecorations="Underline"/>
-                <TextBox
+                <TextBox x:Name="UpdateMaxSalary"
                     Grid.Row="5" 
                     Grid.Column="1" 
                     Controls:TextBoxHelper.ClearTextButton="True" 
                     Controls:TextBoxHelper.Watermark="Enter maximum salary here..." />
                 <Button 
                     Content="UPDATE"  
-                    Grid.Row="6" 
+                    Grid.Row="7" 
                     Grid.ColumnSpan="2"  
                     Style="{DynamicResource SquareButtonStyle}" 
                     Click="Update_Click"
@@ -260,5 +234,17 @@
         <TabItem Header="Find by">
         </TabItem>
     </TabControl>
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="ErrorFlyout" Header="Couldn't add employee, check your details and try again..."                 
+                       Position="Bottom"                       
+                       Height="100"
+                       Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:MetroWindow}, Path=ActualWidth}"
+                       Theme="Inverse" Background="#FF440606" Foreground="White" IsAutoCloseEnabled="True" AutoCloseInterval="3000"/>
+
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
 
 </Controls:MetroWindow>

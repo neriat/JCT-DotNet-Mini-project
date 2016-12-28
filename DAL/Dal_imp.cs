@@ -10,22 +10,12 @@ namespace DAL
     public class Dal_imp : Idal
     {
         #region Find functions
-        /// <summary>
-        /// Find employee by its id
-        /// </summary>
-        /// <param name="workerID">ID</param>
-        /// <returns>type of employee that id belongs to</returns>
         public Employee FindWorker(string workerID)
         {
             var a = DataSource.EmployeeList.Find(emp => emp.ID == workerID);
             if (a == null) throw new Exception("Employee doesn't exist");
             return a;
         }
-        /// <summary>
-        /// Find specialization by its id
-        /// </summary>
-        /// <param name="specializationID"></param>
-        /// <returns>type of specialization that id belongs to</returns>
         public Specialization FindSpecialization(int specializationID)
         {
             Specialization sp = GetSpecializationList().Find(spec => spec.SpecializationID == specializationID);
@@ -33,21 +23,12 @@ namespace DAL
                 throw new Exception("No such specialization exists in the system");
             return sp;
         }
-        /// <summary>
-        /// Find contract by its id
-        /// </summary>
-        /// <param name="conID"></param>
-        /// <returns>type of contract that id belongs to</returns>
         public Contract FindContract(int conID)
         {
             var a = DataSource.ContractList.Find(con => con.ContractID == conID);
             if (a == null) throw new Exception("Contract doesn't exist");
             return a;
         }
-        /// <summary>
-        /// /// Find employer by its id        /// </summary>
-        /// <param name="bossID"></param>
-        /// <returns>type of employer that id belongs to</returns>
         public Employer FindBoss(string bossID)
         {
             var a = DataSource.EmployerList.Find(emp => emp.ID == bossID);
@@ -73,10 +54,6 @@ namespace DAL
         //}
         #endregion
         #region Add functions
-        /// <summary>
-        /// Add a contract to data structure that implement via list
-        /// </summary>
-        /// <param name="con">contract type</param>
         public void AddContract(Contract con)
         {
             if (con.ContractID == 0)
@@ -93,10 +70,6 @@ namespace DAL
             }
             DataSource.ContractList.Add(con);
         }
-        /// <summary>
-        /// Add a emploee to data structure that implement via list
-        /// </summary>
-        /// <param name="emp">employee type</param>
         public void AddEmployee(Employee emp)
         {
             var a = DataSource.EmployeeList.Find(e => e.ID == emp.ID);
@@ -104,10 +77,6 @@ namespace DAL
                 throw new Exception("Employee ID is already in the system");
             DataSource.EmployeeList.Add(emp);
         }
-        /// <summary>
-        /// Add a employer to data structure that implement via list
-        /// </summary>
-        /// <param name="emp">employer type</param>
         public void AddEmployer(Employer emp)
         {
             var a = DataSource.EmployerList.Find(e => e.ID == emp.ID);
@@ -115,23 +84,24 @@ namespace DAL
                 throw new Exception("Employer ID is already in the system");
             DataSource.EmployerList.Add(emp);
         }
-        /// <summary>
-        /// Add a specialization to data structure that implement via list
-        /// </summary>
-        /// <param name="sp">specialization type</param>
         public void AddSpecialization(Specialization sp)
         {
-            var a = DataSource.SpecializationList.Find(s => s.SpecializationID == sp.SpecializationID);
-            if (a != null)
-                throw new Exception("Specialization ID is already in the system");
+            if (sp.SpecializationID == 0)
+                do
+                {
+                    sp.SpecializationID = ++Specialization.SpecializationIDNum;
+                }
+                while (DataSource.SpecializationList.Find(s => s.SpecializationID == sp.SpecializationID) != null);
+            else
+            {
+                var a = DataSource.SpecializationList.Find(s => s.SpecializationID == sp.SpecializationID);
+                if (a != null)
+                    throw new Exception("Specialization ID is already in the system");
+            }
             DataSource.SpecializationList.Add(sp);
         }
         #endregion
         #region Get functions
-        /// <summary>
-        /// The function gets access to data structure and extract the banks
-        /// </summary>
-        /// <returns>banks binding in list</returns>
         public List<Bank> GetBankList()
         {
             List<Bank> lst = new List<Bank>();
@@ -169,63 +139,43 @@ namespace DAL
             return lst;
             //            return DataSource.BankList;
         }
-        /// <summary>
-        /// The function gets access to data structure and extract the contracts
-        /// </summary>
-        /// <returns>contracts binding in list</returns>
         public List<Contract> GetContractList()
         {
             return DataSource.ContractList;
         }
-        /// <summary>
-        /// The function gets access to data structure and extract the employees
-        /// </summary>
-        /// <returns>employees binding in list</returns>
         public List<Employee> GetEmployeeList()
         {
             return DataSource.EmployeeList;
         }
-        /// <summary>
-        /// The function gets access to data structure and extract the employers
-        /// </summary>
-        /// <returns>employer binding in list</returns>
         public List<Employer> GetEmployerList()
         {
             return DataSource.EmployerList;
         }
-        /// <summary>
-        /// The function gets access to data structure and extract the specializations
-        /// </summary>
-        /// <returns>specializations binding in list</returns>
         public List<Specialization> GetSpecializationList()
         {
-            List<Specialization> spec = new List<Specialization>();
-            Specialization a = new Specialization();
-            a.SpecializationName = "Hello";
-            spec.Add(a);
+            //List<Specialization> spec = new List<Specialization>();
+            //Specialization a = new Specialization();
+            //a.SpecializationName = "Hello";
+            //spec.Add(a);
 
-            a = new Specialization();
-            a.SpecializationName = "From";
-            spec.Add(a);
+            //a = new Specialization();
+            //a.SpecializationName = "From";
+            //spec.Add(a);
 
-            a = new Specialization();
-            a.SpecializationName = "The";
-            spec.Add(a);
+            //a = new Specialization();
+            //a.SpecializationName = "The";
+            //spec.Add(a);
 
-            a = new Specialization();
-            a.SpecializationName = "Other";
-            spec.Add(a);
-            a = new Specialization();
-            a.SpecializationName = "Side";
-            spec.Add(a);
+            //a = new Specialization();
+            //a.SpecializationName = "Other";
+            //spec.Add(a);
+            //a = new Specialization();
+            //a.SpecializationName = "Side";
+            //spec.Add(a);
 
-            return spec;
-            // return DataSource.SpecializationList;
+            //return spec;
+           return DataSource.SpecializationList;
         }
-        /// <summary>
-        /// The function gets access to data structure and extract the branches
-        /// </summary>
-        /// <returns>branches binding in list</returns>
         public List<Branch> GetBranchList()
         {
             List<Branch> branches = new List<Branch>();
@@ -282,10 +232,6 @@ namespace DAL
         }
         #endregion
         #region Remove functions
-        /// <summary>
-        /// The function gets access to data structure and remove the item that id belongs to
-        /// </summary>
-        /// <param name="id">id of the type we remove</param>
         public void RemoveContract(int id)
         {
             var x = DataSource.ContractList.RemoveAll(con => con.ContractID == id);
@@ -293,10 +239,6 @@ namespace DAL
                 throw new Exception("No such contract was found");
 
         }
-        /// <summary>
-        /// The function gets access to data structure and remove the item that id belongs to
-        /// </summary>
-        /// <param name="id">id of the type we remove</param>
         public void RemoveEmployee(string id)
         {
             var x = DataSource.EmployeeList.RemoveAll(emp => emp.ID == id);
@@ -304,20 +246,12 @@ namespace DAL
                 throw new Exception("No such employee was found");
 
         }
-        /// <summary>
-        /// The function gets access to data structure and remove the item that id belongs to
-        /// </summary>
-        /// <param name="id">id of the type we remove</param>
         public void RemoveEmployer(string id)
         {
             var x = DataSource.EmployerList.RemoveAll(emp => emp.ID == id);
             if (x == 0)
                 throw new Exception("No such employer was found");
         }
-        /// <summary>
-        /// The function gets access to data structure and remove the item that id belongs to
-        /// </summary>
-        /// <param name="id">id of the type we remove</param>
         public void RemoveSpecialization(int id)
         {
             var x = DataSource.SpecializationList.RemoveAll(sp => sp.SpecializationID == id);
@@ -327,10 +261,6 @@ namespace DAL
         }
         #endregion
         #region Update functions
-        /// <summary>
-        /// The function gets access to data structure and update the item that has the same id
-        /// </summary>
-        /// <param name="UpdatedCon">Updated contract</param>
         public void UpdateContract(Contract UpdatedCon)
         {
             int index = DataSource.ContractList.FindIndex(con => con.ContractID == UpdatedCon.ContractID);
@@ -338,10 +268,6 @@ namespace DAL
                 throw new Exception("No such contract was found to update");
             DataSource.ContractList[index] = UpdatedCon;
         }
-        /// <summary>
-        /// The function gets access to data structure and update the item that has the same id
-        /// </summary>
-        /// <param name="UpdatedEmp">Updated employee</param>
         public void UpdateEmployee(Employee UpdatedEmp)
         {
             int index = DataSource.EmployeeList.FindIndex(emp => emp.ID == UpdatedEmp.ID);
@@ -350,10 +276,6 @@ namespace DAL
             DataSource.EmployeeList[index] = UpdatedEmp;
 
         }
-        /// <summary>
-        /// The function gets access to data structure and update the item that has the same id
-        /// </summary>
-        /// <param name="UpdatedEmp">Updated employer</param>
         public void UpdateEmployer(Employer UpdatedEmp)
         {
             int index = DataSource.EmployerList.FindIndex(emp => emp.ID == UpdatedEmp.ID);
@@ -361,10 +283,6 @@ namespace DAL
                 throw new Exception("No such employer was found to update");
             DataSource.EmployerList[index] = UpdatedEmp;
         }
-        /// <summary>
-        /// The function gets access to data structure and update the item that has the same id
-        /// </summary>
-        /// <param name="UpdatedSp">Updated specialization</param>
         public void UpdateSpecialization(Specialization UpdatedSp)
         {
             int index = DataSource.SpecializationList.FindIndex(sp => sp.SpecializationID == UpdatedSp.SpecializationID);

@@ -8,7 +8,8 @@
         xmlns:local="clr-namespace:PLWPF"
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-    Title="MainWindow" Height="500" Width="800">
+        Icon="slaveicon.png"
+    Title="Slaves LTD" Height="500" Width="800">
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="*"/>
@@ -17,31 +18,23 @@
             <RowDefinition Height="*"/>
 
         </Grid.RowDefinitions>
-        <Button
-            x:Name="EmployeesButton" 
-            Content="Employees"  
-            Grid.Row="0" 
-            FontWeight="Bold" 
-            FontStretch="Expanded" 
-            FontSize="40" 
-            Click="EmployeesButton_Click"/>
-        <Button 
-            x:Name="EmployersButton" 
-            Content="Employers" 
-            Grid.Row="1" 
-            FontSize="40" 
-            Click="EmployersButton_Click"/>
-        <Button 
-            x:Name="ContractsButton" 
-            Content="Contracts" 
-            Grid.Row="2" 
-            FontSize="40" 
-            Click="ContractsButton_Click"/>
-        <Button 
-            x:Name="SpecializationButton" 
-            Content="Specialization" 
-            Grid.Row="3" 
-            FontSize="40" 
-            Click="SpecializationButton_Click"/>
+        <!--<Button x:Name="EmployeesButton" Content="Employees"  Grid.Row="0" FontWeight="Bold" FontStretch="Expanded" FontSize="40" Click="EmployeesButton_Click"/>-->
+        <Controls:Tile Width="auto" Height="auto" Grid.Row="0" Title="Employees" TitleFontSize="20"  Click="EmployeesButton_Click" Background="#CC02658F" MouseEnter="Tile_MouseEnter" MouseLeave="Tile_MouseLeave">
+        <Image x:Name="engineer_png" Grid.RowSpan="4" Source="engineer.png" HorizontalAlignment="Center"/>
+        </Controls:Tile>
+        <!--<Button x:Name="EmployersButton" Content="Employers" Grid.Row="1" FontSize="40" Click="EmployersButton_Click"/>-->
+        <Controls:Tile Width="auto" Height="auto" Grid.Row="1" Title="Employers" TitleFontSize="20" Background="#FF075555"  Click="EmployersButton_Click" MouseEnter="Tile_MouseEnter" MouseLeave="Tile_MouseLeave">
+            <Image x:Name="boss_png" Source="boss.png" HorizontalAlignment="Center"/>
+        </Controls:Tile>
+        <!--<Button x:Name="ContractsButton" Content="Contracts" Grid.Row="2" FontSize="40" Click="ContractsButton_Click"/>-->
+        <Controls:Tile Width="auto" Height="auto" Grid.Row="2" Title="Contracts" TitleFontSize="20" Background="#FF170532"  Click="ContractsButton_Click" MouseEnter="Tile_MouseEnter" MouseLeave="Tile_MouseLeave">
+            <Image x:Name="diploma_png" HorizontalAlignment="Center" Margin="0,10,0,0" Source="diploma.png"/>
+        </Controls:Tile>
+        <!--<Button x:Name="SpecializationButton" Content="Specialization" Grid.Row="3" FontSize="40" Click="SpecializationButton_Click"/>-->
+        <Controls:Tile Width="auto" Height="auto" Grid.Row="3" Title="Specialization" TitleFontSize="20" Background="#FF680030"  Click="SpecializationButton_Click" MouseLeave="Tile_MouseLeave" MouseEnter="Tile_MouseEnter">
+            <Image x:Name="tools_png" Source="tools.png"/>
+
+
+        </Controls:Tile>
     </Grid>
 </Controls:MetroWindow>

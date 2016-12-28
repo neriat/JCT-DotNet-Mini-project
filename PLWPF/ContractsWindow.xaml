@@ -8,7 +8,8 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"              
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-    Title="Contracts Window" Height="500" Width="800" >
+        Icon="diploma.png "
+    Title="Contracts" Height="500" Width="800" >
 
     <TabControl>
 
@@ -43,13 +44,13 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
-                    
+
                     <TextBlock Grid.Row="0" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose employee:    " HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
                     <Controls:SplitButton x:Name="ChooseEmployeeForDeal" Grid.Row="1" Grid.Column="0"  />
 
                     <TextBlock Grid.Row="0" Grid.Column="1" FontFamily="Yu Gothic Medium" Text="Choose employer:    " HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
                     <Controls:SplitButton x:Name="ChooseEmployerForDeal" Grid.Row="1" Grid.Column="1"  />
-                    
+
                 </Grid>
 
                 <Grid Grid.Row="1">
@@ -60,7 +61,8 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="18"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -68,24 +70,24 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Is the contract signed:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <Controls:ToggleSwitch Grid.Row="0" Grid.Column="1" IsChecked="True" OnLabel="Signed" OffLabel="Unsinged"/>
+                    <Controls:ToggleSwitch x:Name="AddIsContractSigned" Grid.Row="0" Grid.Column="1" IsChecked="True" OnLabel="Signed" OffLabel="Unsinged"/>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Was the employee interviewed:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <Controls:ToggleSwitch Grid.Row="1" Grid.Column="1" IsChecked="True" OnLabel="Interviewed" OffLabel="Wasn't interviewed"/>
+                    <Controls:ToggleSwitch x:Name="AddWasInterviewed" Grid.Row="1" Grid.Column="1" IsChecked="True" OnLabel="Interviewed" OffLabel="Wasn't interviewed"/>
 
                     <TextBlock Grid.Row="2" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Starting date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <DatePicker x:Name="ContractStartingDate" Grid.Row="2" Grid.Column="1"/>
+                    <DatePicker x:Name="AddContractStartingDate" Grid.Row="2" Grid.Column="1"/>
 
                     <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Ending date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <DatePicker x:Name="ContractEndingDate" Grid.Row="3" Grid.Column="1"/>
+                    <DatePicker x:Name="AddContractEndingDate" Grid.Row="3" Grid.Column="1"/>
 
                     <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Gross salary:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee gross salary here..."  />
+                    <TextBox x:Name="AddGrossSalary" Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee gross salary here..."  />
 
                     <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Amount of working hours:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee working hours here..."  />
+                    <TextBox x:Name="AddWorkingHours" Grid.Row="5" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee working hours here..."  />
 
-                    <Button Content="ADD"  Grid.Row="6" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
+                    <Button Content="Add"  Grid.Row="7" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
 
 
 
@@ -99,13 +101,15 @@
         <TabItem Header="Remove">
             <Grid>
                 <Grid.RowDefinitions>
-                    <RowDefinition Height="0.5*"/>
-                    <RowDefinition Height="2*"/>
-                    <RowDefinition Height="1*"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="Choose contract to delete: "/>
-                <Controls:SplitButton x:Name="ChooseContractToRemove" Grid.Row="1"/>
-                <Button Content="REMOVE"  Grid.Row="2"  Style="{DynamicResource SquareButtonStyle}" FontSize="30" FontWeight="Bold" Click="Remove_Click" />
+                <Controls:SplitButton x:Name="ChooseContractToRemove" Grid.Row="2"/>
+                <Button Content="REMOVE"  Grid.Row="4"  Style="{DynamicResource SquareButtonStyle}" FontSize="30" FontWeight="Bold" Click="Remove_Click" />
 
             </Grid>
         </TabItem>
@@ -133,7 +137,8 @@
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
                         <RowDefinition Height="auto"/>
-                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="18"/>
+                        <RowDefinition Height="auto"/>
                     </Grid.RowDefinitions>
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
@@ -141,21 +146,21 @@
                     </Grid.ColumnDefinitions>
 
                     <TextBlock Grid.Row="0" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Is the contract signed:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <Controls:ToggleSwitch Grid.Row="0" Grid.Column="1" IsChecked="True" OnLabel="Signed" OffLabel="Unsinged"/>
+                    <Controls:ToggleSwitch x:Name="UpdateIsSinged" Grid.Row="0" Grid.Column="1" IsChecked="True" OnLabel="Signed" OffLabel="Unsinged"/>
 
                     <TextBlock Grid.Row="1" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Was the employee interviewed:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <Controls:ToggleSwitch Grid.Row="1" Grid.Column="1" IsChecked="True" OnLabel="Interviewed" OffLabel="Wasn't interviewed"/>
+                    <Controls:ToggleSwitch x:Name="UpdateWasInterviewed" Grid.Row="1" Grid.Column="1" IsChecked="True" OnLabel="Interviewed" OffLabel="Wasn't interviewed"/>
 
                     <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Ending date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
                     <DatePicker x:Name="UpdatedContractEndingDate" Grid.Row="3" Grid.Column="1"/>
 
                     <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Gross salary:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <TextBox Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee gross salary here..."  />
+                    <TextBox x:Name="UpdateGrossSalary" Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee gross salary here..."  />
 
                     <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Amount of working hours:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                    <TextBox Grid.Row="5" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee working hours here..."  />
+                    <TextBox x:Name="UpdateWorkingHours" Grid.Row="5" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee working hours here..."  />
 
-                    <Button Content="ADD"  Grid.Row="6" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
+                    <Button Content="ADD"  Grid.Row="7" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Update_Click"/>
 
 
 
@@ -166,6 +171,57 @@
 
         </TabItem>
         <TabItem Header="Find by">
+            <!--<DataGrid Name="SimpleGrid" AutoGenerateColumns="False" CanUserAddRows="False" >
+
+                <DataGrid.Columns>
+                    <DataGridTemplateColumn Header="Employee" Width="Auto" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=EmployeeID}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTemplateColumn Header="Employer" Width="Auto" >
+                        <DataGridTemplateColumn.CellTemplate>
+                            <DataTemplate>
+                                <TextBlock Text="{Binding Path=EmployerID}"></TextBlock>
+                            </DataTemplate>
+                        </DataGridTemplateColumn.CellTemplate>
+                    </DataGridTemplateColumn>
+                    <DataGridTextColumn Header="Contract ID" Binding="{Binding Path=ContractID}" ></DataGridTextColumn>
+                </DataGrid.Columns>
+            </DataGrid>-->
+            <ListView  x:Name="listView" Width="auto" Height="auto">
+                <ListView.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <WrapPanel />
+                    </ItemsPanelTemplate>
+                </ListView.ItemsPanel>
+
+
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <Border BorderThickness="2" BorderBrush="Blue" Margin="5">
+                            <StackPanel>
+                                <TextBlock Text="{Binding Path=Key}" FontSize="16" Foreground="Red" TextAlignment="Center" />
+                                <ListView ItemsSource="{Binding}">
+                                    <!--<ListView.ItemTemplate>
+                                    <DataTemplate>
+                                        <local:StudentTemplateUserControl>
+
+                                        </local:StudentTemplateUserControl>
+                                    </DataTemplate>
+                                </ListView.ItemTemplate>-->
+                                </ListView>
+                            </StackPanel>
+                        </Border>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+          
+
+
+
         </TabItem>
 
 
