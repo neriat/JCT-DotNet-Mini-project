@@ -44,5 +44,4 @@
             FontSize="40" 
             Click="SpecializationButton_Click"/>
     </Grid>
-
 </Controls:MetroWindow>
