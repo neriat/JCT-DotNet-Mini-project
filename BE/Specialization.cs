@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Specialization : ICloneable
+    public class Specialization
     {
         public static int SpecializationIDNum = 9999999;
         public int SpecializationID{ get; set; }
@@ -17,16 +17,6 @@ namespace BE
         public override string ToString()
         {
             return Field + " " + SpecializationName + " " + SpecializationID;
-        }
-        object ICloneable.Clone()
-        {
-            Specialization s = new Specialization();
-            s.SpecializationID = (int)SpecializationID;
-            s.Field = (SpecializationField)Field;
-            s.SpecializationName = (string)SpecializationName.Clone();
-            s. MinSalary =(double)MinSalary;
-            s. MaxSalary =(double)MaxSalary;
-            return s;
         }
     }
 }

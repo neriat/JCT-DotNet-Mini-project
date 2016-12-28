@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public class Contract : ICloneable
+    public class Contract
     {
-
+        
         public static int ContractIDNum = 9999999;
         public int ContractID { get; set; }
         public string EmployerID { get; set; }
@@ -22,24 +22,7 @@ namespace BE
         public double WorkingHours { get; set; }
         public override string ToString()
         {
-            return "Not implemeneted yet!!!";
-        }
-        object ICloneable.Clone()
-        {
-            Contract c = new Contract();
-
-            c.ContractID = (int)ContractID;
-            c.EmployeeID = (string)EmployeeID.Clone();
-            c.EmployerID = (string)EmployerID.Clone();
-            c.IsInterviewed = (bool)IsInterviewed;
-            c.IsSigned = (bool)IsSigned;
-            c.GrossSalary = (double)GrossSalary;
-            c.NetSalary = (double)NetSalary;
-            c.StartDate = (DateTime)StartDate;
-            c.EndDate = (DateTime)EndDate;
-            c.WorkingHours = (double)WorkingHours;
-
-            return c;
+            return "Employee ID: " + EmployeeID + " Employer ID: " + EmployerID + " Contract ID: " + ContractID;
         }
     }
 }

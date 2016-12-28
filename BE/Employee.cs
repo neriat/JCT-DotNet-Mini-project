@@ -10,8 +10,8 @@ namespace BE
     public class Employee : ICloneable
     {
         public string ID { get; set; }
-        public string FirstName { get; set; }
         public string LastName { get; set; }
+        public string FirstName { get; set; }
         public DateTime BirthDate { get; set; }
         public string PhoneNumber { get; set; }
         public string Address { get; set; }
@@ -20,11 +20,11 @@ namespace BE
         public bool Veteran { get; set; }
         public BankAccount BankAccount { get; set; }
         public string SpecialityID { get; set; }
-        public int DealsNum { get; set; }
         public override string ToString()
         {
-            return FirstName + " " + LastName + ", " + ID;
+            return "Full name: " + FirstName + " " + LastName + " ID: " + ID;
         }
+
         public object Clone()
         {
 
@@ -44,5 +44,7 @@ namespace BE
 
             return e;
         }
+
+        public int DealsNum { get; set; }
     }
 }

@@ -9,7 +9,6 @@ using DAL;
 namespace BL
 {
     public class BL_imp : IBL
-
     {
         DAL.Dal_imp data = new Dal_imp();
         #region Finding functions
