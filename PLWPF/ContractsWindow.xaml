@@ -1,0 +1,186 @@
+﻿<Controls:MetroWindow x:Class="PLWPF.ContractsWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        xmlns:fsxaml="http://github.com/fsprojects/FsXaml"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"              
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+    Title="Contracts Window" Height="500" Width="800" >
+
+    <TabControl>
+
+
+        <TabItem Header="Descreption">
+            <StackPanel>
+
+                <TextBlock/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="This is the employees window."/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="Here you will be able to add more employees, remove, and update existing ones."/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="In the 'Find by' tab you will be able to sort employees and get groups that match your features."/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="Please note that when updating an employee, not all the fields will be open to change,"/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="and that removing employees will also remove all associated contracts."/>
+
+
+            </StackPanel>
+
+
+        </TabItem>
+        <TabItem Header="Add">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+                    
+                    <TextBlock Grid.Row="0" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose employee:    " HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <Controls:SplitButton x:Name="ChooseEmployeeForDeal" Grid.Row="1" Grid.Column="0"  />
+
+                    <TextBlock Grid.Row="0" Grid.Column="1" FontFamily="Yu Gothic Medium" Text="Choose employer:    " HorizontalAlignment="Center" VerticalAlignment="Center" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <Controls:SplitButton x:Name="ChooseEmployerForDeal" Grid.Row="1" Grid.Column="1"  />
+                    
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Is the contract signed:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <Controls:ToggleSwitch Grid.Row="0" Grid.Column="1" IsChecked="True" OnLabel="Signed" OffLabel="Unsinged"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Was the employee interviewed:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <Controls:ToggleSwitch Grid.Row="1" Grid.Column="1" IsChecked="True" OnLabel="Interviewed" OffLabel="Wasn't interviewed"/>
+
+                    <TextBlock Grid.Row="2" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Starting date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <DatePicker x:Name="ContractStartingDate" Grid.Row="2" Grid.Column="1"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Ending date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <DatePicker x:Name="ContractEndingDate" Grid.Row="3" Grid.Column="1"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Gross salary:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee gross salary here..."  />
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Amount of working hours:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee working hours here..."  />
+
+                    <Button Content="ADD"  Grid.Row="6" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
+
+
+
+                </Grid>
+
+
+            </Grid>
+
+
+        </TabItem>
+        <TabItem Header="Remove">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="Choose contract to delete: "/>
+                <Controls:SplitButton x:Name="ChooseContractToRemove" Grid.Row="1"/>
+                <Button Content="REMOVE"  Grid.Row="2"  Style="{DynamicResource SquareButtonStyle}" FontSize="30" FontWeight="Bold" Click="Remove_Click" />
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="Update">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Grid Grid.Row="0">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                    </Grid.RowDefinitions>
+
+                    <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="Choose contract to update:  "/>
+                    <Controls:SplitButton x:Name="ChooseContractToUpdate" Grid.Row="1"/>
+                </Grid>
+
+                <Grid Grid.Row="1">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="auto"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="2*"/>
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock Grid.Row="0" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Is the contract signed:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <Controls:ToggleSwitch Grid.Row="0" Grid.Column="1" IsChecked="True" OnLabel="Signed" OffLabel="Unsinged"/>
+
+                    <TextBlock Grid.Row="1" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Was the employee interviewed:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <Controls:ToggleSwitch Grid.Row="1" Grid.Column="1" IsChecked="True" OnLabel="Interviewed" OffLabel="Wasn't interviewed"/>
+
+                    <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Ending date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <DatePicker x:Name="UpdatedContractEndingDate" Grid.Row="3" Grid.Column="1"/>
+
+                    <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Gross salary:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <TextBox Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee gross salary here..."  />
+
+                    <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Amount of working hours:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                    <TextBox Grid.Row="5" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee working hours here..."  />
+
+                    <Button Content="ADD"  Grid.Row="6" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
+
+
+
+                </Grid>
+
+
+            </Grid>
+
+        </TabItem>
+        <TabItem Header="Find by">
+        </TabItem>
+
+
+
+    </TabControl>
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="ErrorFlyout" Header="Couldn't add employee, check your details and try again..."                 
+                       Position="Bottom"                       
+                       Height="100"
+                       Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:MetroWindow}, Path=ActualWidth}"
+                       Theme="Inverse" Background="#FF440606" Foreground="White" IsAutoCloseEnabled="True" AutoCloseInterval="3000"/>
+
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
+</Controls:MetroWindow>

@@ -1,0 +1,194 @@
+﻿<Controls:MetroWindow x:Class="PLWPF.EmployersWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:PLWPF"
+        xmlns:fsxaml="http://github.com/fsprojects/FsXaml"
+        xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"              
+        mc:Ignorable="d"
+        WindowStartupLocation="CenterScreen"
+    Title="Employers Window" Height="500" Width="800" >
+
+    <TabControl>
+
+
+        <TabItem Header="Descreption">
+            <StackPanel>
+
+                <TextBlock/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="&#x9;This is the employers window."/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="Here you will be able to add more employers, remove, and update existing ones."/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="In the 'Find by' tab you will be able to sort employers and get groups that match your features."/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="Please note that when updating an employer, not all the fields might be open for changing,"/>
+                <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="and that removing employers will also remove all associated information."/>
+
+
+            </StackPanel>
+
+
+        </TabItem>
+        <TabItem Header="Add">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <Controls:ToggleSwitch x:Name="AddEmpBusinessType" Grid.Row="0" Grid.Column="1" IsChecked="True" OnLabel="Enterprise" OffLabel="Private business"/>
+                <TextBlock Grid.Row="0" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Type of business:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employers ID:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="AddEmpID" Grid.Row="1" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employer ID here..."  />
+
+                <TextBlock Grid.Row="2" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee first name:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="AddEmpFirstName" Grid.Row="2" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employer first name here..."  />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee last name: " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="AddEmpLastName" Grid.Row="3" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee last name here..." />
+
+                <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Company name:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="AddEmpCompanyName" Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter company name here..."  />
+
+                <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Phone number:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="AddEmpPhoneNumber" Grid.Row="5" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employer phone number here..."  />
+
+                <TextBlock Grid.Row="6" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Address:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="AddEmpAddress" Grid.Row="6" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employer address here..."  />
+
+                <TextBlock 
+                    Grid.Row="7" 
+                    Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Choose Field:    " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <Controls:SplitButton
+                    x:Name="AddEmpChooseField" 
+                    Grid.Row="7" 
+                    Grid.Column="1" />
+                
+                <TextBlock Grid.Row="8" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Establishment date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <DatePicker x:Name="AddEmpEstablishmentDates" Grid.Row="8" Grid.Column="1"/>
+
+
+
+
+
+
+
+
+
+
+                <Button Content="ADD"  Grid.Row="11" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
+            </Grid>
+
+        </TabItem>
+        <TabItem Header="Remove">
+            <Grid>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="0.5*"/>
+                    <RowDefinition Height="2*"/>
+                    <RowDefinition Height="1*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="Choose employer to delete: "/>
+                <Controls:SplitButton x:Name="ChooseEmployerToRemove" Grid.Row="1"/>
+                <Button Content="REMOVE"  Grid.Row="2"  Style="{DynamicResource SquareButtonStyle}" FontSize="30" FontWeight="Bold" Click="Remove_Click" />
+
+            </Grid>
+        </TabItem>
+        <TabItem Header="Update">
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <TextBlock Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" FontFamily="Yu Gothic Medium" VerticalAlignment="Center" FontSize="18" TextDecorations="Underline" Text="Choose employer to delete: "/>
+                <Controls:SplitButton x:Name="ChooseEmployerToUpdate" Grid.Row="0" Grid.Column="1"/>
+                <Controls:ToggleSwitch x:Name="UpdateEmpBusinessType" Grid.Row="1" Grid.Column="1" IsChecked="True" OnLabel="Enterprise" OffLabel="Private business"/>
+                <TextBlock Grid.Row="1" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Type of business:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+
+                <TextBlock Grid.Row="2" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employers ID:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="UpdateEmpID" Grid.Row="2" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employer ID here..."  />
+
+                <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee first name:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="UpdateEmpFirstName" Grid.Row="3" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employer first name here..."  />
+
+                <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee last name: " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="UpdateEmpLastName" Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee last name here..." />
+
+                <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Company name:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="UpdateEmpCompanyName" Grid.Row="5" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter company name here..."  />
+
+                <TextBlock Grid.Row="6" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Phone number:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="UpdateEmpPhoneNumber" Grid.Row="6" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employer phone number here..."  />
+
+                <TextBlock Grid.Row="7" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Address:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox x:Name="UpdateEmpAddress" Grid.Row="7" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employer address here..."  />
+
+                <TextBlock 
+                    Grid.Row="8" 
+                    Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Choose Field:    " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <Controls:SplitButton
+                    x:Name="UpdateEmpChooseField" 
+                    Grid.Row="8" 
+                    Grid.Column="1" />
+
+                <TextBlock Grid.Row="9" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Establishment date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <DatePicker x:Name="UpdateEmpEstablishmentDate" Grid.Row="9" Grid.Column="1"/>
+            
+
+            <Button Content="UPDATE"  Grid.Row="10" Grid.ColumnSpan="2" Grid.RowSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Update_Click"/>
+            </Grid>
+
+        </TabItem>
+        <TabItem Header="Find by">
+        </TabItem>
+
+
+
+    </TabControl>
+
+    <Controls:MetroWindow.Flyouts>
+        <Controls:FlyoutsControl>
+            <Controls:Flyout x:Name="ErrorFlyout" Header="Couldn't add employee, check your details and try again..."                 
+                       Position="Bottom"                       
+                       Height="100"
+                       Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:MetroWindow}, Path=ActualWidth}"
+                       Theme="Inverse" Background="#FF440606" Foreground="White" IsAutoCloseEnabled="True" AutoCloseInterval="3000"/>
+
+        </Controls:FlyoutsControl>
+    </Controls:MetroWindow.Flyouts>
+
+</Controls:MetroWindow>
