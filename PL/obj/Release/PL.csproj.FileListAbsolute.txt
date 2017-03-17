@@ -1,0 +1,42 @@
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\PL.exe.config
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\PL.exe
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\PL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\BL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\DAL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\BL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\DAL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\bin\Release\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\obj\Release\PL.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\obj\Release\PL.exe
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\PL\obj\Release\PL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\PL.exe.config
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\PL.exe
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\PL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\BL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\DAL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\BL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\DAL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\bin\Release\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\obj\Release\PL.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\obj\Release\PL.exe
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\PL\obj\Release\PL.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\PL.exe.config
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\PL.exe
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\PL.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\BE.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\BL.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\DAL.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\DS.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\BE.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\BL.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\DAL.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\bin\Release\DS.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\obj\Release\PL.csprojResolveAssemblyReference.cache
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\obj\Release\PL.exe
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\PL\obj\Release\PL.pdb
