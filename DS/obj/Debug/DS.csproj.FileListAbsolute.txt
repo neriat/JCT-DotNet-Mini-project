@@ -1,0 +1,98 @@
+C:\Users\Shoham\Documents\Visual Studio 2015\Projects\JCT_Project\DS\bin\Debug\DS.dll
+C:\Users\Shoham\Documents\Visual Studio 2015\Projects\JCT_Project\DS\bin\Debug\DS.pdb
+C:\Users\Shoham\Documents\Visual Studio 2015\Projects\JCT_Project\DS\bin\Debug\BE.dll
+C:\Users\Shoham\Documents\Visual Studio 2015\Projects\JCT_Project\DS\bin\Debug\BE.pdb
+C:\Users\Shoham\Documents\Visual Studio 2015\Projects\JCT_Project\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+C:\Users\Shoham\Documents\Visual Studio 2015\Projects\JCT_Project\DS\obj\Debug\DS.dll
+C:\Users\Shoham\Documents\Visual Studio 2015\Projects\JCT_Project\DS\obj\Debug\DS.pdb
+C:\Users\נחמה\Desktop\JCT_Project\DS\bin\Debug\DS.dll
+C:\Users\נחמה\Desktop\JCT_Project\DS\bin\Debug\DS.pdb
+C:\Users\נחמה\Desktop\JCT_Project\DS\bin\Debug\BE.dll
+C:\Users\נחמה\Desktop\JCT_Project\DS\bin\Debug\BE.pdb
+C:\Users\נחמה\Desktop\JCT_Project\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+C:\Users\נחמה\Desktop\JCT_Project\DS\obj\Debug\DS.dll
+C:\Users\נחמה\Desktop\JCT_Project\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_working\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_working\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_working\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_working\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_working\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_working\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_working\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_5_1\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_5_1\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_5_1\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_5_1\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_5_1\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_5_1\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_5_1\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_8_1\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_8_1\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_8_1\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_8_1\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_8_1\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_8_1\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_8_1\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_15_1\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_15_1\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_15_1\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_15_1\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_15_1\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_15_1\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_15_1\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_18_1\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_18_1\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_18_1\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_18_1\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_18_1\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_18_1\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_18_1\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_19_1\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_19_1\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_19_1\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_19_1\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_19_1\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_19_1\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_19_1\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_24_1\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_24_1\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_24_1\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_24_1\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_24_1\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_24_1\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_24_1\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DS\bin\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DS\bin\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DS\bin\Debug\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DS\bin\Debug\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DS\obj\Debug\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DS\obj\Debug\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית - Copy (2)\DS\bin\Debug\DS.dll
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית - Copy (2)\DS\bin\Debug\DS.pdb
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית - Copy (2)\DS\bin\Debug\BE.dll
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית - Copy (2)\DS\bin\Debug\BE.pdb
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית - Copy (2)\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית - Copy (2)\DS\obj\Debug\DS.dll
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית - Copy (2)\DS\obj\Debug\DS.pdb
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית בהחלט\DS\bin\Debug\DS.dll
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית בהחלט\DS\bin\Debug\DS.pdb
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית בהחלט\DS\bin\Debug\BE.dll
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית בהחלט\DS\bin\Debug\BE.pdb
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית בהחלט\DS\obj\Debug\DS.csprojResolveAssemblyReference.cache
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית בהחלט\DS\obj\Debug\DS.dll
+C:\Users\Shoham\Downloads\JCT_Project - סופי סופי מחלה סופנית\JCT_Project - סופי סופי מחלה סופנית בהחלט\DS\obj\Debug\DS.pdb

@@ -1,0 +1,36 @@
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DAL\bin\Release\DAL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DAL\bin\Release\DAL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DAL\bin\Release\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DAL\bin\Release\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DAL\bin\Release\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DAL\bin\Release\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DAL\obj\Release\DAL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\DAL\obj\Release\DAL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DAL\bin\Release\DAL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DAL\bin\Release\DAL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DAL\bin\Release\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DAL\bin\Release\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DAL\bin\Release\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DAL\bin\Release\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DAL\obj\Release\DAL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_31_1\DAL\obj\Release\DAL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\DAL\bin\Release\DAL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\DAL\bin\Release\DAL.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\DAL\bin\Release\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\DAL\bin\Release\DS.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\DAL\bin\Release\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\DAL\bin\Release\DS.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\DAL\obj\Release\DAL.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\DAL\obj\Release\DAL.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\DAL\bin\Release\DAL.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\DAL\bin\Release\DAL.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\DAL\bin\Release\BE.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\DAL\bin\Release\DS.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\DAL\bin\Release\BE.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\DAL\bin\Release\DS.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\DAL\obj\Release\DAL.csprojResolveAssemblyReference.cache
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\DAL\obj\Release\DAL.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\DAL\obj\Release\DAL.pdb
