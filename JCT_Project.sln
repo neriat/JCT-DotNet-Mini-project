@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PLWPF", "PLWPF\PLWPF.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PL", "PL\PL.csproj", "{62FE34F4-CE1E-4BF1-B422-ECCA537644B6}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{576BAE83-599A-4DFA-8122-22C8920AFA18}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +56,9 @@ Global
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AF0228D1-3CE8-4893-B05E-D00B501C29A7} = {576BAE83-599A-4DFA-8122-22C8920AFA18}
+		{62FE34F4-CE1E-4BF1-B422-ECCA537644B6} = {576BAE83-599A-4DFA-8122-22C8920AFA18}
 	EndGlobalSection
 EndGlobal
