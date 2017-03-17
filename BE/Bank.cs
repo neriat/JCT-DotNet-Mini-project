@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    public struct Bank : ICloneable
+    [Serializable]
+    public class Bank : ICloneable
     {
         public string BankID { get; set; }
         public string BankName { get; set; }
@@ -19,20 +20,47 @@ namespace BE
         }
         public override string ToString()
         {
-            return "Name :  " + BankName + "  Bank ID :  " + BankID;
+            return BankName + ", " + BankID;
         }
+
+        //public static bool operator ==(Bank b, Bank c)
+        //{
+        //    return (b.ToString()==c.ToString());
+        //}
+        //public static bool operator !=(Bank b, Bank c)
+        //{
+        //    return (b.ToString() != c.ToString());
+        //}
+
     }
 
-    public struct Branch : ICloneable
+    [Serializable]
+    public class Branch : ICloneable
     {
+        public Branch()
+        {
+            bank = new Bank();
+            BranchID = null;
+            BranchAddress = null;
+            BranchCity = null;
+        }
         public Bank bank { get; set; }
         public string BranchID { get; set; }
         public string BranchAddress { get; set; }
         public string BranchCity { get; set; }
         public override string ToString()
         {
-            return bank.ToString() + " Branch ID :  " + BranchID;
+            return bank.ToString() + "  " + BranchID;
         }
+        //public static bool operator ==(Branch b, Branch c)
+        //{
+        //    return (b.ToString() == c.ToString());
+        //}
+        //public static bool operator !=(Branch b, Branch c)
+        //{
+        //    return (b.ToString() != c.ToString());
+        //}
+
         public object Clone()
         {
             Branch b = new Branch();
@@ -43,13 +71,31 @@ namespace BE
 
             return b;
         }
-    }
 
-    public struct BankAccount : ICloneable
+
+    }
+    [Serializable]
+    public class BankAccount : ICloneable
     {
+        public BankAccount()
+        {
+            branch = new Branch();
+            AccountNumber = null;
+        }
         public Branch branch { get; set; }
         public string AccountNumber { get; set; }
-
+        public override string ToString()
+        {
+            return branch.ToString() + "  " + AccountNumber;
+        }
+        //public static bool operator ==(BankAccount b, BankAccount c)
+        //{
+        //    return (b.ToString() == c.ToString());
+        //}
+        //public static bool operator !=(BankAccount b, BankAccount c)
+        //{
+        //    return (b.ToString() != c.ToString());
+        //}
         public object Clone()
         {
             BankAccount b = new BankAccount();

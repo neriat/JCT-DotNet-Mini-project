@@ -6,24 +6,6 @@ using System.Threading.Tasks;
 
 namespace BE
 {
-    //public enum BankNames
-    //{
-
-    //    Hapoalim,
-    //    Leumi,
-    //    Discount,
-    //    Mizrahi,
-    //    OtzarHaHayal
-    //}
-
-    //public enum BankIDs
-    //{
-    //    B1111,
-    //    B222,
-    //    B3333,
-    //    B444,
-    //    B5555,
-    //}
     public enum month
     {
         January = 1,
@@ -53,22 +35,22 @@ namespace BE
     public enum SpecializationField
     {
         Data_Base,
-        Networking,
         Data_Security,
-        Server_Side,
+        GUI,
         Mobile_Programing,
-        GUI
+        Networking,
+        Server_Side,
     }
 
     public enum District
     {
-        Jerusalem,
-        Northern,
-        Haifa,
         Central,
-        TelAviv,
+        Haifa,
+        Jerusalem,
+        JudeaAndSamaria,
+        Northern,
         Southern,
-        JudeaAndSamaria
+        TelAviv,
     }
 
 

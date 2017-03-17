@@ -9,21 +9,32 @@ using DAL;
 namespace BL
 {
     public class BL_imp : IBL
+
     {
-        DAL.Dal_imp data = new Dal_imp();
+        //DAL.Dal_imp data = new Dal_imp();
+        Idal data = FactoryDal.GetDal();
+
         #region Finding functions
         /// <summary>
         /// gets an specialization id as int and return its specialization type
         /// </summary>
         /// <param name="SpecializationID">Specialization ID</param>
         /// <returns> specialization type </returns>
-        private Specialization FindSpecialization(int SpecializationID)
+        public Specialization FindSpecialization(int SpecializationID)
         {
             return data.FindSpecialization(SpecializationID);
         }
-        private Contract FindContract(int ContractID)
+        public Contract FindContract(int ContractID)
         {
             return data.FindContract(ContractID);
+        }
+        public Employee FindWorker(string workerID)
+        {
+            return data.FindWorker(workerID);
+        }
+        public Employer FindBoss(string bossID)
+        {
+            return data.FindBoss(bossID);
         }
         #endregion
         #region Adding functions
@@ -34,12 +45,18 @@ namespace BL
         public void AddContract(Contract con)
         {
             ExceptionContract(con);
-            data.AddContract(con);
+
+            con.NetSalary = CalcWorkerNetSalary(con);
 
             Employee worker = data.FindWorker(con.EmployeeID);
             Employer boss = data.FindBoss(con.EmployerID);
             worker.DealsNum++;
             boss.ContractsNum++;
+            UpdateEmployee(worker);
+            UpdateEmployer(boss);
+
+            data.AddContract(con);
+
         }
         /// <summary>
         /// The function adds the employee to database right after a validification check 
@@ -80,7 +97,7 @@ namespace BL
         public double CalcWorkerNetSalary(Contract contract)
         {
             // the net salary goes like that:
-            //  (gross salary) - (boss fee based on number of employers under him)*(1.01 -if the worker isn't IDF vetern)/(num of deals worker did + 1) -(-10% -boss gain)
+            //  (gross salary) - (boss fee based on number of employers under him)*(1.01 -if the worker isn't IDF vetern)/(num of deals worker did + 1)
             //  boss fee: starts at 40. downby .7 for every signed contract. state at 4
             Employee worker = data.FindWorker(contract.EmployeeID);
             Employer boss = data.FindBoss(contract.EmployerID);
@@ -91,16 +108,12 @@ namespace BL
             double BossFee = 40 - 0.7 * boss.ContractsNum;
             if (BossFee < 4) BossFee = 4; //lowest fee
 
-            return (contract.GrossSalary - (BossFee * armyDiscount) / (worker.DealsNum + 1)) * 0.9; //using in 0.9 in grouping!!!
+            if ((contract.GrossSalary - (BossFee * armyDiscount) / (worker.DealsNum + 1) <= 0))
+                if (contract.GrossSalary - 0.9 <= 0) return contract.GrossSalary;
+                else return contract.GrossSalary-0.9;
+            else
+                return contract.GrossSalary - (BossFee * armyDiscount) / (worker.DealsNum + 1);
 
-        }
-        public double CalcEmployerGain(string bossID)
-        {
-            //NOT IMPLEMENTED YET
-            var qr = from item in GetContractList()
-                     where item.EmployerID == bossID
-                     select item.NetSalary / 0.9;
-            return qr.Sum();
         }
         #endregion
         #region Exception-validification void functions
@@ -118,12 +131,9 @@ namespace BL
             else if (!BossExists(con.EmployerID))
                 throw new Exception("Employer doesn't exist");
 
-            // bank issues
-            Employee worker = data.FindWorker(con.EmployeeID);
-            if (!IsBankExist(worker.BankAccount.branch.bank.BankID))
-                throw new Exception("Employee bank account doesn't exist");
-
+           
             // salary issues
+            Employee worker = data.FindWorker(con.EmployeeID);
             Specialization sp = FindSpecialization(int.Parse(worker.SpecialityID));
             if (con.GrossSalary > sp.MaxSalary)
                 throw new Exception("Gross salary is bigger than the max salary that defined in his specialization");
@@ -150,11 +160,25 @@ namespace BL
         /// <param name="emp">Employee</param>
         private void ExceptionEmployee(Employee emp)
         {
+            for (int i = 0; i < emp.FirstName.Count(); i++)
+                if (char.IsDigit(emp.FirstName[i]))
+                    throw new Exception("I don't know a guy with digits in his name.");
+            for (int i = 0; i < emp.LastName.Count(); i++)
+                if (char.IsDigit(emp.LastName[i]))
+                    throw new Exception("I don't know a guy with digits in his name.");
+
             if (!WorkerOldEnough(emp))
                 throw new Exception("Employee is too young");
 
             if (!IsBankExist(emp.BankAccount.branch.bank.BankID))
                 throw new Exception("Employee bank account doesn't exist");
+
+            if (int.Parse(emp.BankAccount.AccountNumber) < 0)
+                throw new Exception("Employee account number can't be negative");
+
+            if (int.Parse(emp.PhoneNumber) < 0)
+                throw new Exception("Employee phone number can't be negative");
+
         }
         /// <summary>
         /// A check for  human-resource-terms, logical & typo errors
@@ -167,6 +191,17 @@ namespace BL
 
             if (emp.IsCompany && emp.CompanyName == null)
                 throw new Exception("Compeny must have a name");
+
+            for (int i = 0; emp.FirstName != null && i < emp.FirstName.Count(); i++)
+                if (char.IsDigit(emp.FirstName[i]))
+                    throw new Exception("I don't know a guy with digits in his name.");
+            for (int i = 0; emp.LastName != null && i < emp.LastName.Count(); i++)
+                if (char.IsDigit(emp.LastName[i]))
+                    throw new Exception("I don't know a guy with digits in his name.");
+            for (int i = 0; emp.CompanyName != null && i < emp.CompanyName.Count(); i++)
+                if (char.IsDigit(emp.CompanyName[i]))
+                    throw new Exception("I don't know a guy with digits in his name.");
+
         }
         /// <summary>
         /// A check for  human-resource-terms, logical & typo errors
@@ -174,19 +209,87 @@ namespace BL
         /// <param name="sp">Specialization</param>
         private void ExceptionSpecialization(Specialization sp)
         {
+            if (
+                string.IsNullOrEmpty(sp.SpecializationName) == true &&
+                sp.MaxSalary == 0 &&
+                sp.MinSalary == 0
+                )
+                throw new Exception("All fields must have a vaild value");
+
+            for (int i = 0; i < sp.SpecializationName.Count(); i++)
+                if (char.IsDigit(sp.SpecializationName[i]))
+                    throw new Exception("I don't know a guy with digits in his name.");
+            if (string.IsNullOrEmpty(sp.SpecializationName))
+                throw new Exception("Everyone should have a name.");
             if (sp.MinSalary > sp.MaxSalary)
-                throw new Exception("Minimum salary is higher than the maximum one");
+                throw new Exception("Minimum salary is higher than the maximum one.");
+            if (sp.MinSalary < 0)
+                throw new Exception("Salary can't be negative.");
+            if (sp.MaxSalary == 0)
+                throw new Exception("Nobody works for free.");
         }
+
+        private void ExceptionSpecializationUpdate(Specialization sp)
+        {
+            Specialization old = new Specialization();
+            try
+            {
+                old = (Specialization)FindSpecialization(sp.SpecializationID).Clone();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Task failed successfully, you didn't choose an existing specialization");
+            }
+
+            if (
+                sp.SpecializationName == old.SpecializationName &&
+                sp.MaxSalary == old.MaxSalary &&
+                sp.MinSalary == old.MinSalary &&
+                sp.Field == old.Field
+                )
+                throw new Exception("Task failed successfully, you didn't change anything");
+
+        }
+        private void ExceptionEmployeeUpdate(Employee emp)
+        {
+            Employee old = new Employee();
+            try
+            {
+                old = (Employee)FindWorker(emp.ID).Clone();
+            }
+            catch (Exception)
+            {
+                throw new Exception("Task failed successfully, you didn't choose an existing employee");
+            }
+
+            if (
+                old.ID == emp.ID &&
+                old.FirstName == emp.FirstName &&
+                old.LastName == emp.LastName &&
+                old.BirthDate == emp.BirthDate &&
+                old.PhoneNumber == emp.PhoneNumber &&
+                old.Address == emp.Address &&
+                old.region == emp.region &&
+                old.Degree == emp.Degree &&
+                old.Veteran == emp.Veteran &&
+                old.BankAccount.ToString() == emp.BankAccount.ToString() &&
+                old.SpecialityID == emp.SpecialityID &&
+                old.DealsNum == emp.DealsNum
+                )
+                throw new Exception("Task failed successfully, you didn't change anything");
+        }
+
+
         #endregion
         #region Getting functions
         public List<Contract> GetAllContracts(Predicate<Contract> match)
         {
             return GetContractList().FindAll(match);
         }
-        public List<Bank> GetBankList()
-        {
-            return data.GetBankList();
-        }
+        //      public List<Bank> GetBankList()
+        //{
+        //      return data.GetBankList();
+        //   }
         public List<Branch> GetBranchList()
         {
             return data.GetBranchList();
@@ -214,43 +317,137 @@ namespace BL
         }
         #endregion
         #region Grouping functions
+        #region Groups for contracts
         public IEnumerable<IGrouping<SpecializationField, Contract>> GroupContractBySpec(DateTime begin, DateTime end, bool order = false)
         {
             return from item in data.GetContractList()
                    let worker = data.FindWorker(item.EmployeeID)
                    let spec = data.FindSpecialization(int.Parse(worker.SpecialityID))
                    where item.StartDate >= begin && item.EndDate <= end
-                   orderby order ? item.ContractID : 0
+                   orderby order ? spec.Field : 0
                    group item by spec.Field;
         }
         public IEnumerable<IGrouping<SpecializationField, Contract>> GroupContractBySpec(bool order = false)
         {
             return GroupContractBySpec(DateTime.MinValue, DateTime.MaxValue, order);
         }
-        public IEnumerable<IGrouping<District, Contract>> GroupContractByDistrict(DateTime begin, DateTime end, bool order = false)
+
+        public IEnumerable<IGrouping<District?, Contract>> GroupContractByDistrict(DateTime begin, DateTime end, bool order = false)
         {
             return from item in data.GetContractList()
                    let worker = data.FindWorker(item.EmployeeID)
                    where item.StartDate >= begin && item.EndDate <= end
-                   orderby order ? item.ContractID : 0
+                   orderby order ? worker.region : 0
                    group item by worker.region;
         }
-        public IEnumerable<IGrouping<District, Contract>> GroupContractByDistrict(bool order = false)
+        public IEnumerable<IGrouping<District?, Contract>> GroupContractByDistrict(bool order = false)
         {
             return GroupContractByDistrict(DateTime.MinValue, DateTime.MaxValue, order);
         }
-        public IEnumerable<IGrouping<int, double>> GroupGainByStartYear(int bossID, DateTime begin, DateTime end, bool order = false)
+
+        public IEnumerable<IGrouping<int, double>> GroupContractByShares(DateTime begin, DateTime end, bool order = false)
         {
-            return from item in data.GetContractList()
-                   let worker = data.FindWorker(item.EmployeeID)
-                   where int.Parse(item.EmployerID) == bossID
-                   where item.StartDate >= begin && item.EndDate <= end
-                   orderby order ? item.StartDate.Year : 0
-                   group item.NetSalary / 0.9 by item.StartDate.Year;
+            var temp = from item in data.GetContractList()
+                       let worker = data.FindWorker(item.EmployeeID)
+                       //where int.Parse(item.EmployerID) == bossID
+                       where item.StartDate >= begin && item.EndDate <= end
+                       orderby order ? item.StartDate.Year : 0
+                       group (item.GrossSalary - item.NetSalary) * item.WorkingHours by item.StartDate.Year;
+
+            return from item in temp
+                   group Math.Round(item.Sum(), 2) by item.Key;
+
         }
-        public IEnumerable<IGrouping<int, double>> GroupGainByStartYear(int bossID, bool order = false)
+        public IEnumerable<IGrouping<int, double>> GroupContractByShares(bool order = false)
         {
-            return GroupGainByStartYear(bossID, DateTime.MinValue, DateTime.MaxValue, order);
+            return GroupContractByShares(DateTime.MinValue, DateTime.MaxValue, order);
+        }
+        #endregion
+
+        #region Groups for employees
+        public IEnumerable<IGrouping<District?, Employee>> GroupEmployeeByDistrict(bool order = false)
+        {
+            return from item in data.GetEmployeeList()
+                   orderby order ? item.region : 0
+                   group item by item.region;
+        }
+        public IEnumerable<IGrouping<string, Employee>> GroupEmployeeByBank(bool order = false)
+        {
+            return from item in data.GetEmployeeList()
+                   let names = item.BankAccount.branch.bank.BankName
+                   orderby order ? string.CompareOrdinal(names, item.BankAccount.branch.bank.BankName) : 0
+                   group item by item.BankAccount.branch.bank.BankName;
+        }
+        public IEnumerable<IGrouping<enumDegree?, Employee>> GroupEmployeeByDegree(bool order = false)
+        {
+            return from item in data.GetEmployeeList()
+                   orderby order ? item.Degree : 0
+                   group item by item.Degree;
+        }
+        public IEnumerable<IGrouping<int, Employee>> GroupEmployeeByBirthYear(bool order = false)
+        {
+            return from item in data.GetEmployeeList()
+                   orderby order ? item.BirthDate.Year : 0
+                   group item by item.BirthDate.Year;
+        }
+        #endregion
+
+        #region Groups for employers
+        public IEnumerable<IGrouping<SpecializationField?, Employer>> GroupEmployerByField(bool order = false)
+        {
+            return from item in data.GetEmployerList()
+                   orderby order ? item.Field : 0
+                   group item by item.Field;
+        }
+        public IEnumerable<IGrouping<int, Employer>> GroupEmployerByEstablishmentYear(bool order = false)
+        {
+            return from item in data.GetEmployerList()
+                   orderby order ? item.EstablishmentDate.Year : 0
+                   group item by item.EstablishmentDate.Year;
+        }
+        public IEnumerable<IGrouping<string, Employer>> GroupEmployerByBusinessType(bool order = false)
+        {
+            return from item in data.GetEmployerList()
+                   orderby order ? item.IsCompany.ToString()[0] : 0
+                   group item by ((item.IsCompany) ? "Enterprise" : "Private business");
+        }
+        #endregion
+
+        #region Groups for specialization
+        public IEnumerable<IGrouping<SpecializationField, Specialization>> GroupSpecializationByField(bool order = false)
+        {
+            return from item in data.GetSpecializationList()
+                   orderby order ? item.Field : 0
+                   group item by item.Field;
+        }
+        public IEnumerable<IGrouping<double, Specialization>> GroupSpecializationByMinSalary(bool order = false)
+        {
+            return from item in data.GetSpecializationList()
+                   orderby order ? item.MinSalary : 0
+                   group item by Math.Round(item.MinSalary, 2);
+        }
+        public IEnumerable<IGrouping<double, Specialization>> GroupSpecializationByMaxSalary(bool order = false)
+        {
+            return from item in data.GetSpecializationList()
+                   orderby order ? item.MaxSalary : 0
+                   group item by Math.Round(item.MaxSalary, 2);
+        }
+        #endregion
+
+        public List<Bank> GetBankList()
+        {
+            return data.GetBankList();
+        }
+
+        public IEnumerable<IGrouping<string, IGrouping<string, Branch>>> GetAllBranchesByBankAndCity()
+        {
+            return
+                from branch in data.GetBranchList().Distinct()
+                group branch by branch.bank.BankName into g
+                from item in (from branch2 in g
+                              group branch2 by branch2.BranchCity)
+                group item by g.Key;
+
         }
         #endregion
         #region BOOLEAN functions
@@ -319,6 +516,8 @@ namespace BL
         public void RemoveContract(int id)
         {
             Contract con = data.FindContract(id);
+            if (con.IsSigned)
+                throw new Exception("The contract is signed and so cannot be removed");
             Employee worker = data.FindWorker(con.EmployeeID);
             Employer boss = data.FindBoss(con.EmployerID);
             data.RemoveContract(id);
@@ -341,18 +540,30 @@ namespace BL
         }
         public void RemoveSpecialization(int id)
         {
+            RemoveAllContract(con => data.FindWorker(con.EmployeeID).SpecialityID == id.ToString());
+            RemoveAllEmployee(emp => int.Parse(emp.SpecialityID) == id);
             data.RemoveSpecialization(id);
+        }
+        private int RemoveAllEmployee(Predicate<Employee> match)
+        {
+            return data.RemoveAllEmployee(match);
+        }
+        private int RemoveAllContract(Predicate<Contract> match)
+        {
+            return data.RemoveAllContract(match);
         }
         #endregion
         #region Updating functions
         public void UpdateContract(Contract UpdatedCon)
         {
             ExceptionContract(UpdatedCon);
+            UpdatedCon.NetSalary = CalcWorkerNetSalary(UpdatedCon);
             data.UpdateContract(UpdatedCon);
         }
         public void UpdateEmployee(Employee UpdatedEmp)
         {
             ExceptionEmployee(UpdatedEmp);
+            ExceptionEmployeeUpdate(UpdatedEmp);
             data.UpdateEmployee(UpdatedEmp);
         }
         public void UpdateEmployer(Employer UpdatedEmp)
@@ -362,6 +573,8 @@ namespace BL
         }
         public void UpdateSpecialization(Specialization UpdatedSp)
         {
+            ExceptionSpecialization(UpdatedSp);
+            ExceptionSpecializationUpdate(UpdatedSp);
             data.UpdateSpecialization(UpdatedSp);
         }
         #endregion

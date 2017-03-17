@@ -1,0 +1,15 @@
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\BE\bin\Release\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\BE\bin\Release\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\BE\obj\Release\BE.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\BE\obj\Release\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project_25_1\BE\obj\Release\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\BE\bin\Release\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\BE\bin\Release\BE.pdb
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\BE\obj\Release\BE.csprojResolveAssemblyReference.cache
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\BE\obj\Release\BE.dll
+d:\Users\Neria Tzidkani\Documents\Visual Studio 2015\Projects\JCT_Project - סופי סופי מחלה סופנית - Copy\BE\obj\Release\BE.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\BE\bin\Release\BE.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\BE\bin\Release\BE.pdb
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\BE\obj\Release\BE.csprojResolveAssemblyReference.cache
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\BE\obj\Release\BE.dll
+D:\Users\Neria Tzidkani\GoogleDrive\JCT_Project_working\הגשה\JCT_Project -Final\BE\obj\Release\BE.pdb

@@ -6,13 +6,14 @@ using System.Threading.Tasks;
 
 namespace BE
 {
+    [Serializable]
     public class Contract : ICloneable
     {
 
         public static int ContractIDNum = 9999999;
         public int ContractID { get; set; }
-        public string EmployerID { get; set; }
         public string EmployeeID { get; set; }
+        public string EmployerID { get; set; }
         public bool IsInterviewed { get; set; }
         public bool IsSigned { get; set; }
         public double GrossSalary { get; set; }
@@ -29,8 +30,8 @@ namespace BE
             Contract c = new Contract();
 
             c.ContractID = (int)ContractID;
-            c.EmployeeID = (string)EmployeeID.Clone();
-            c.EmployerID = (string)EmployerID.Clone();
+            if(EmployeeID!=null)c.EmployeeID = (string)EmployeeID.Clone();
+            if(EmployerID !=null)c.EmployerID = (string)EmployerID.Clone();
             c.IsInterviewed = (bool)IsInterviewed;
             c.IsSigned = (bool)IsSigned;
             c.GrossSalary = (double)GrossSalary;
