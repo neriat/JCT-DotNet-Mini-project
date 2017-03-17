@@ -1,4 +1,4 @@
-﻿<Controls:MetroWindow x:Class="PLWPF.EmployeesWindow"
+﻿<Controls:MetroWindow x:Name="metroWindow" x:Class="PLWPF.EmployeesWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
@@ -8,29 +8,30 @@
         xmlns:Controls="http://metro.mahapps.com/winfx/xaml/controls"              
         mc:Ignorable="d"
         WindowStartupLocation="CenterScreen"
-        Icon="engineer.png"
-    Title="Employees" Height="500" Width="800" >
+        Icon="icon/engineer.png"
+    Title="Employees" Height="550" Width="800" >
+
+    <Window.Resources>
+        <local:SpecialityToSpecialityID
+         x:Key="SpecialityToSpecialityID" />
+    </Window.Resources>
 
     <TabControl>
-
-
-        <TabItem Header="Descreption">
+        <TabItem  Header="Description">
             <StackPanel>
-
                 <TextBlock/>
                 <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="This is the employees window."/>
                 <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="Here you will be able to add more employees, remove, and update existing ones."/>
                 <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="In the 'Find by' tab you will be able to sort employees and get groups that match your features."/>
                 <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="Please note that when updating an employee, not all the fields will be open to change,"/>
                 <TextBlock FontSize="18" FontFamily="Yu Gothic Medium" Text="and that removing employees will also remove all associated contracts."/>
+                <DataGrid x:Name="AllEmployees" IsReadOnly="True" FrozenColumnCount="3"/>
 
 
             </StackPanel>
-
-
         </TabItem>
-        <TabItem Header="Add">
-            <Grid>
+        <TabItem Header="Add" x:Name ="AddTab">
+            <Grid x:Name="AddGrid">
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
@@ -48,57 +49,249 @@
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="18"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock
-                    Grid.Row="0"
-                    Grid.Column="0"
+                    Grid.Row="0" Grid.Column="0"
                     FontFamily="Yu Gothic Medium"
                     Text="Employee ID:    "
                     FontWeight="Bold"
                     FontSize="18"
                     TextDecorations="Underline"/>
-                <TextBox x:Name="AddEmpID" Grid.Row="0" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee ID here..."/>
+                <TextBox
+                    x:Name="AddEmpID" 
+                    Grid.Row="0" Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee ID here..." 
+                    Text="{Binding ID}"
+                    MaxLength="9"/>
 
-                <TextBlock Grid.Row="1" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee first name:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="AddEmpFirstName" Grid.Row="1" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee first name here..."  />
+                <TextBlock
+                    Grid.Row="1"  Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Employee first name:" 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"
+                    />
+                <TextBox 
+                    x:Name="AddEmpFirstName" 
+                    Grid.Row="1" Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee first name here..."  
+                    Text="{Binding FirstName}"/>
 
-                <TextBlock Grid.Row="2" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee last name: " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="AddEmpLastName" Grid.Row="2" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee last name here..." />
+                <TextBlock 
+                    Grid.Row="2" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Employee last name: "
+                    FontWeight="Bold"
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <TextBox
+                    x:Name="AddEmpLastName" 
+                    Grid.Row="2"  Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee last name here..." 
+                    Text="{Binding LastName}"
+                    />
 
-                <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee birth date:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <DatePicker x:Name="AddEmpBirthDate" Grid.Row="3" Grid.Column="1"/>
+                <TextBlock
+                    Grid.Row="3" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Employee birth date:    "
+                    FontWeight="Bold" 
+                    FontSize="18"
+                    TextDecorations="Underline" />
+                <DatePicker
+                    x:Name="AddEmpBirthDate" 
+                    Grid.Row="3"  Grid.Column="1"
+                    SelectedDate="{Binding BirthDate}"
+                    />
 
-                <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Phone number:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="AddEmpPhoneNumber" Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee phone number here..." />
+                <TextBlock 
+                    Grid.Row="4" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Phone number:   " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <TextBox 
+                    x:Name="AddEmpPhoneNumber" 
+                    Grid.Row="4"  Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee phone number here..." 
+                    Text="{Binding PhoneNumber}"
+                    MaxLength="9"/>
+
+                <TextBlock 
+                    Grid.Row="5" Grid.Column="0"
+                    FontFamily="Yu Gothic Medium"
+                    Text="Choose district:   " 
+                    FontWeight="Bold" 
+                    FontSize="18"
+                    TextDecorations="Underline"/>
+                <ComboBox 
+                    x:Name="ChooseDistrict" 
+                    Grid.Row="5"  Grid.Column="1" 
+                    IsEditable="True" 
+                    SelectedItem="{Binding region}"
+                    />
+
+                <TextBlock 
+                    Grid.Row="6" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium"
+                    Text="Address:    " 
+                    FontWeight="Bold"
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <TextBox 
+                    x:Name="AddEmpAddress" 
+                    Grid.Row="6"  Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee address here..." 
+                    Text="{Binding Address}"/>
+
+                <TextBlock 
+                    Grid.Row="7" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium"
+                    Text="Choose degree:  "
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <ComboBox
+                    x:Name="ChooseDegree" 
+                    Grid.Row="7" Grid.Column="1" 
+                    IsEditable="True"                    
+                    SelectedItem="{Binding Degree}"
+                    />
+
+                <TextBlock
+                    Grid.Row="8" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium"
+                    Text="Army record:    " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <Controls:ToggleSwitch 
+                    x:Name="AddEmpArmyRecord" 
+                    Grid.Row="8" Grid.Column="1" 
+                    OnLabel="Veteran" 
+                    OffLabel="Not a veteran" 
+                    IsChecked="{Binding Veteran}"
+                    />
+
+                <TextBlock
+                    Grid.Row="9" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Choose bank:    " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <TextBlock x:Name="LoadingBanks" Grid.Row="9" Grid.Column="1" VerticalAlignment="Center" Text="Loading the banks from the inernet, please wait..."/>
+                <ComboBox
+                    x:Name="ChooseBank" 
+                    Grid.Row="9" 
+                    IsEditable="True"
+                    IsEnabled="False"
+                    Visibility="Collapsed"
+                    DisplayMemberPath="Key"
+                    Grid.Column="1"
+                    />
+                <TextBlock
+                    Grid.Row="10" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Choose city:    " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <ComboBox
+                    x:Name="ChooseCity" 
+                    Grid.Row="10" 
+                    IsEditable="True"
+                    DisplayMemberPath="Key"
+                    SelectionChanged="AddBranchChanged" 
+                    Grid.Column="1"
+                    ItemsSource="{Binding ElementName=ChooseBank, Path=SelectedItem}">
+                    <ComboBox.Style>
+                        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroComboBox}">
+                            <Setter Property="IsEnabled" Value="True"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=ChooseBank,Path=SelectedIndex}" Value="-1">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
+                </ComboBox>
+                <TextBlock
+                    Grid.Row="11" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Choose branch:    " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <ComboBox
+                    x:Name="ChooseBranch" 
+                    Grid.Row="11" 
+                    IsEditable="True"
+                    DisplayMemberPath="BranchAddress"
+                    SelectionChanged="AddBranchChanged" 
+                    Grid.Column="1"
+                    ItemsSource="{Binding ElementName=ChooseCity, Path=SelectedItem}"
+                    >
+                    <ComboBox.Style>
+                        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroComboBox}">
+                            <Setter Property="IsEnabled" Value="True"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=ChooseCity,Path=SelectedIndex}" Value="-1">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
+
+                </ComboBox>
 
 
-                <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose district:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <Controls:SplitButton x:Name="ChooseDistrict" Grid.Row="5" Grid.Column="1" />
 
 
-                <TextBlock Grid.Row="6" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Address:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="AddEmpAddress" Grid.Row="6" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee address here..." />
 
-                <Controls:SplitButton x:Name="ChooseDegree" Grid.Row="7" Grid.Column="1" />
-                <TextBlock Grid.Row="7" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose degree:  " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBlock
+                    Grid.Row="12" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium"
+                    Text="Account number:   " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <TextBox
+                    x:Name="AddEmpAccountNumber" 
+                    Grid.Row="12" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee bank account number here..." 
+                    Text="{Binding BankAccount.AccountNumber}" Grid.Column="1"
+                     MaxLength="7"/>
 
-                <Controls:ToggleSwitch x:Name="AddEmpArmyRecord" Grid.Row="8" Grid.Column="1" IsChecked="True" OnLabel="Veteran" OffLabel="Not a veteran"/>
-                <TextBlock Grid.Row="8" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Army record:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBlock
+                    Grid.Row="13" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Choose specialization:    " 
+                    FontWeight="Bold" 
+                    FontSize="18"
+                    TextDecorations="Underline"/>
+                <ComboBox 
+                    x:Name="ChooseSpec" 
+                    Grid.Row="13" Grid.Column="1" 
+                     SelectedIndex="{Binding SpecialityID, Converter={StaticResource SpecialityToSpecialityID}}"
+                    />
 
 
-                <TextBlock Grid.Row="9" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose branch:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <Controls:SplitButton x:Name="ChooseBranch" Grid.Row="9" Grid.Column="1"/>
-
-                <TextBlock Grid.Row="10" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Account number:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="AddEmpAccountNumber" Grid.Row="10" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee bank account number here..." />
-
-                <TextBlock Grid.Row="11" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose specialization:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <Controls:SplitButton x:Name="ChooseSpec" Grid.Row="11" Grid.Column="1"/>
-
-
-                <Button x:Name="AddEmpButton" Content="ADD"  Grid.Row="13" Grid.ColumnSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
+                <Button x:Name="AddEmpButton" Content="ADD"  Grid.Row="16" Grid.ColumnSpan="2"   Style="{DynamicResource SquareButtonStyle}" Click="Add_Click"/>
             </Grid>
 
         </TabItem>
@@ -112,18 +305,21 @@
                     <RowDefinition Height="auto"/>
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="30" Text="Choose employee to delete: "/>
-                <Controls:SplitButton x:Name="ChooseEmployeeToRemove" Grid.Row="2"/>
+                <ComboBox x:Name="ChooseEmployeeToRemove" Grid.Row="2"/>
                 <Button x:Name="RemoveEmpButton" Content="REMOVE"  Grid.Row="4"  Style="{DynamicResource SquareButtonStyle}" FontSize="30" FontWeight="Bold" Click="Remove_Click" />
 
             </Grid>
         </TabItem>
-        <TabItem Header="Update">
+        <TabItem Header="Update" x:Name ="UpdateTab">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="auto"/>
                     <ColumnDefinition Width="*"/>
                 </Grid.ColumnDefinitions>
                 <Grid.RowDefinitions>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
+                    <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
                     <RowDefinition Height="auto"/>
@@ -141,61 +337,310 @@
 
                 </Grid.RowDefinitions>
                 <TextBlock Grid.Row="0"  FontSize="30" FontFamily="Bold" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.ColumnSpan="2" Text="Choose employee to update: "/>
-                <Controls:SplitButton x:Name="ChooseEmployeeToUpdate" Grid.Row="1" Grid.ColumnSpan="2"/>
+                <TextBlock x:Name="EmployeeLoadingBanks" Grid.Row="1" Grid.Column="1" VerticalAlignment="Center" HorizontalAlignment="left" Text="You can't choose an employee before the banks are downloaded, please wait..."/>
+       
+                <ComboBox
+                    x:Name="ChooseEmployeeToUpdate" 
+                    IsEnabled="False"
+                    Visibility="Collapsed"
+                    Grid.Row="1" 
+                    Grid.ColumnSpan="2" 
+                    SelectionChanged="ChooseEmployeeToUpdate_SelectionChanged"
+                    />
+                <TextBlock Grid.Row="2"  FontSize="18"  HorizontalAlignment="Left" VerticalAlignment="Center" Grid.ColumnSpan="2" FontFamily="Yu Gothic Medium" TextDecorations="Underline" Text="Employee Id: "/>
+                <TextBox
+                    x:Name="UpdateEmpID" 
+                    Grid.Row="2" Grid.Column="1" 
+                    IsEnabled="False"
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee ID here..." 
+                    Text="{Binding ID}"
+                    MaxLength="9"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee first name:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox 
+                    x:Name="UpdatedEmpFirstName" 
+                    Grid.Row="3" 
+                    Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark ="Enter employee first name here... " 
+                    Text="{Binding FirstName}"
+                    />
 
-                <TextBlock Grid.Row="2" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee first name:" FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="UpdatedEmpFirstName" Grid.Row="2" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark ="Enter employee first name here... " />
+                <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee last name: " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox 
+                    x:Name="UpdatedEmpLastName" 
+                    Grid.Row="4" 
+                    Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee last name here..."
+                    Text="{Binding LastName, Mode=TwoWay}"
+                    />
 
-                <TextBlock Grid.Row="3" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Employee last name: " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="UpdatedEmpLastName" Grid.Row="3" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee last name here..." />
-
-                <TextBlock Grid.Row="4" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Phone number:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="UpdatedEmpPhoneNumber" Grid.Row="4" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee phone number here..." />
-
-
-                <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose district:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <Controls:SplitButton x:Name="ChooseUpdatedDistrict" Grid.Row="5" Grid.Column="1" />
-
-
-                <TextBlock Grid.Row="6" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Address:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="UpdatedEmpAddress" Grid.Row="6" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee address here..." />
-
-                <Controls:SplitButton x:Name="ChooseUpdatedDegree" Grid.Row="7" Grid.Column="1" />
-                <TextBlock Grid.Row="7" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose degree:  " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-
-                <Controls:ToggleSwitch x:Name="UpdatedEmpArmyRecord" Grid.Row="8" Grid.Column="1" IsChecked="True" OnLabel="Veteran" OffLabel="Not a veteran"/>
-                <TextBlock Grid.Row="8" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Army record:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBlock Grid.Row="5" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Phone number:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox 
+                    x:Name="UpdatedEmpPhoneNumber" 
+                    Grid.Row="5" 
+                    Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee phone number here..."
+                    Text="{Binding PhoneNumber}"
+                    MaxLength="9"
+                    />
 
 
-                <TextBlock Grid.Row="9" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose branch:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <Controls:SplitButton x:Name="ChooseUpdatedBranch" Grid.Row="9" Grid.Column="1"  />
+                <TextBlock Grid.Row="6" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose district:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <ComboBox
+                    x:Name="ChooseUpdatedDistrict"
+                    Grid.Row="6" 
+                    Grid.Column="1"
+                    SelectedItem="{Binding region}"
+                    />
 
-                <TextBlock Grid.Row="10" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Account number:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <TextBox x:Name="UpdatedEmpAccountNumber" Grid.Row="10" Grid.Column="1" Controls:TextBoxHelper.ClearTextButton="True" Controls:TextBoxHelper.Watermark="Enter employee bank account number here..." />
 
-                <TextBlock Grid.Row="11" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose specialization:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
-                <Controls:SplitButton x:Name="ChooseUpdatedSpec" Grid.Row="11" Grid.Column="1"/>
+                <TextBlock Grid.Row="7" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Address:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox 
+                    x:Name="UpdatedEmpAddress" 
+                    Grid.Row="7" 
+                    Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee address here..." 
+                    Text="{Binding Address}"
+                    />
+
+                <TextBlock 
+                    Grid.Row="8" 
+                    Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Choose degree:  " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"
+                    />
+                <ComboBox
+                    x:Name="ChooseUpdatedDegree"
+                    Grid.Row="8"
+                    Grid.Column="1" 
+                    SelectedItem="{Binding Degree}"
+                    />
+
+                <TextBlock
+                    Grid.Row="9" 
+                    Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Army record:    " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"
+                    />
+                <Controls:ToggleSwitch
+                    x:Name="UpdatedEmpArmyRecord"
+                    Grid.Row="9" 
+                    Grid.Column="1" 
+                    OnLabel="Veteran" 
+                    OffLabel="Not a veteran"
+                    IsChecked="{Binding Veteran}"
+                    />
 
 
-                <Button x:Name="UpdatedEmpButton" Content="UPDATE"  Grid.Row="13" Grid.ColumnSpan="2" Grid.RowSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Update_Click"/>
+                <TextBlock Grid.Row="10" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose bank:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBlock x:Name="UpdateLoadingBanks" Grid.Row="10" Grid.Column="1" VerticalAlignment="Center" Text="Loading the banks from the inernet, please wait..."/>
+                <ComboBox
+                    x:Name="UpdateChooseBank" 
+                    Grid.Row="10" 
+                    IsEditable="True"
+                    IsEnabled="False"
+                    Visibility="Collapsed"
+                    DisplayMemberPath="Key"
+                    Grid.Column="1"
+                    />
+                <TextBlock
+                    Grid.Row="11" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Choose city:    " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <ComboBox
+                    x:Name="UpdateChooseCity" 
+                    Grid.Row="11" 
+                    IsEditable="True"
+                    DisplayMemberPath="Key"
+                    SelectionChanged="UpdateBranchChanged" 
+                    Grid.Column="1"
+                    ItemsSource="{Binding ElementName=UpdateChooseBank, Path=SelectedItem}">
+                    <ComboBox.Style>
+                        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroComboBox}">
+                            <Setter Property="IsEnabled" Value="True"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=UpdateChooseBank,Path=SelectedIndex}" Value="-1">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
+
+
+                </ComboBox>
+                <TextBlock
+                    Grid.Row="12" Grid.Column="0" 
+                    FontFamily="Yu Gothic Medium" 
+                    Text="Choose branch:    " 
+                    FontWeight="Bold" 
+                    FontSize="18" 
+                    TextDecorations="Underline"/>
+                <ComboBox
+                    x:Name="UpdateChooseBranch" 
+                    Grid.Row="12" 
+                    IsEditable="True"
+                    DisplayMemberPath="BranchAddress"
+                    SelectionChanged="UpdateBranchChanged" 
+                    Grid.Column="1"
+                    ItemsSource="{Binding ElementName=UpdateChooseCity, Path=SelectedItem}"
+                    >
+                    <ComboBox.Style>
+                        <Style TargetType="{x:Type ComboBox}" BasedOn="{StaticResource MetroComboBox}">
+                            <Setter Property="IsEnabled" Value="True"/>
+                            <Style.Triggers>
+                                <DataTrigger Binding="{Binding ElementName=UpdateChooseCity,Path=SelectedIndex}" Value="-1">
+                                    <Setter Property="IsEnabled" Value="False"/>
+                                </DataTrigger>
+                            </Style.Triggers>
+                        </Style>
+                    </ComboBox.Style>
+
+                </ComboBox>
+
+
+                <TextBlock Grid.Row="13" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Account number:   " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <TextBox
+                    x:Name="UpdatedEmpAccountNumber" 
+                    Grid.Row="13" 
+                    Grid.Column="1" 
+                    Controls:TextBoxHelper.ClearTextButton="True" 
+                    Controls:TextBoxHelper.Watermark="Enter employee bank account number here..." 
+                    MaxLength="7" Grid.RowSpan="1"
+                    />
+
+                <TextBlock Grid.Row="14" Grid.Column="0" FontFamily="Yu Gothic Medium" Text="Choose specialization:    " FontWeight="Bold" FontSize="18" TextDecorations="Underline"/>
+                <ComboBox 
+                    x:Name="ChooseUpdatedSpec"
+                    Grid.Row="14" 
+                    Grid.Column="1"
+                    SelectedIndex="{Binding SpecialityID, Converter={StaticResource SpecialityToSpecialityID}}" 
+                    />
+
+
+                <Button x:Name="UpdatedEmpButton" Content="UPDATE"  Grid.Row="15" Grid.ColumnSpan="2" Grid.RowSpan="2"  Style="{DynamicResource SquareButtonStyle}" Click="Update_Click"/>
             </Grid>
 
         </TabItem>
-        <TabItem Header="Group By">
+        <TabItem Header="Group By" x:Name="GroupTab">
+            <StackPanel >
+                <StackPanel Width="auto" Height="auto">
+                    <Controls:ToggleSwitch
+                        x:Name="Sort" 
+                        OnLabel="Sort Groups" OffLabel="Don't Sort Groups"
+                        IsCheckedChanged="Sort_IsCheckedChanged"  
+                        />
+                </StackPanel>
+                <TabControl TabStripPlacement="Bottom">
+                    <TabItem Header="By Districts">
+                        <ListView  x:Name="GroupByDistricts" Width="auto" Height="auto">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel MaxWidth="{Binding ActualWidth, ElementName=metroWindow, Mode=OneWay}" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+
+
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="2" BorderBrush="Navy" Margin="5">
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Path=Key}" FontSize="16" Foreground="Navy" TextAlignment="Center" />
+                                            <ListView ItemsSource="{Binding}"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </TabItem>
+
+                    <TabItem Header="By Bank Name">
+                        <ListView  x:Name="GroupByBankName" Width="auto" Height="auto">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel MaxWidth="{Binding ActualWidth, ElementName=metroWindow, Mode=OneWay}" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="2" BorderBrush="Navy" Margin="5">
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Path=Key}" FontSize="16" Foreground="Navy" TextAlignment="Center" />
+                                            <ListView ItemsSource="{Binding}"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </TabItem>
+
+                    <TabItem Header="By Birth Year">
+                        <ListView  x:Name="GroupByBirthYear" Width="auto" Height="auto">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel MaxWidth="{Binding ActualWidth, ElementName=metroWindow, Mode=OneWay}" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="2" BorderBrush="Navy" Margin="5">
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Path=Key}" FontSize="16" Foreground="Navy" TextAlignment="Center" />
+                                            <ListView ItemsSource="{Binding}"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </TabItem>
+
+                    <TabItem Header="By Degree">
+                        <ListView  x:Name="GroupByDegree" Width="auto" Height="auto">
+                            <ListView.ItemsPanel>
+                                <ItemsPanelTemplate>
+                                    <WrapPanel MaxWidth="{Binding ActualWidth, ElementName=metroWindow, Mode=OneWay}" />
+                                </ItemsPanelTemplate>
+                            </ListView.ItemsPanel>
+                            <ListView.ItemTemplate>
+                                <DataTemplate>
+                                    <Border BorderThickness="2" BorderBrush="Navy" Margin="5">
+                                        <StackPanel>
+                                            <TextBlock Text="{Binding Path=Key}" FontSize="16" Foreground="Navy" TextAlignment="Center" />
+                                            <ListView ItemsSource="{Binding}"/>
+                                        </StackPanel>
+                                    </Border>
+                                </DataTemplate>
+                            </ListView.ItemTemplate>
+                        </ListView>
+                    </TabItem>
+                </TabControl>
+            </StackPanel>
         </TabItem>
-
-
-
     </TabControl>
-
     <Controls:MetroWindow.Flyouts>
         <Controls:FlyoutsControl>
-            <Controls:Flyout x:Name="ErrorFlyout" Header="Couldn't add employee, check your details and try again..."                 
-                       Position="Bottom"                       
-                       Height="100"
-                       Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:MetroWindow}, Path=ActualWidth}"
-                       Theme="Inverse" Background="#FF440606" Foreground="White" IsAutoCloseEnabled="True" AutoCloseInterval="3000"/>
-
+            <Controls:Flyout
+                x:Name="ErrorFlyout" 
+                Position="Bottom"                       
+                Height="100"
+                Width="{Binding RelativeSource={RelativeSource FindAncestor, AncestorType=Controls:MetroWindow}, Path=ActualWidth}"
+                Theme="Inverse"
+                Background="#781905" 
+                Foreground="White" 
+                IsAutoCloseEnabled="True" 
+                AutoCloseInterval="3000"/>
         </Controls:FlyoutsControl>
     </Controls:MetroWindow.Flyouts>
 

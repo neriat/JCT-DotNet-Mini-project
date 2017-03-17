@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEmployer xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Employer>
+    <ID>6836478</ID>
+    <IsCompany>true</IsCompany>
+    <CompanyName>Candies for kids</CompanyName>
+    <PhoneNumber>4329871</PhoneNumber>
+    <Address>candy land</Address>
+    <Field>GUI</Field>
+    <EstablishmentDate>1990-01-01T00:00:00</EstablishmentDate>
+    <ContractsNum>0</ContractsNum>
+  </Employer>
+  <Employer>
+    <ID>887744</ID>
+    <IsCompany>true</IsCompany>
+    <CompanyName>Apple</CompanyName>
+    <PhoneNumber>2334324</PhoneNumber>
+    <Address>New Jerrsie</Address>
+    <Field>Mobile_Programing</Field>
+    <EstablishmentDate>1970-01-01T00:00:00</EstablishmentDate>
+    <ContractsNum>0</ContractsNum>
+  </Employer>
+  <Employer>
+    <ID>208720623</ID>
+    <IsCompany>false</IsCompany>
+    <FirstName>Shoham</FirstName>
+    <LastName>Jacobsen</LastName>
+    <PhoneNumber>052584011</PhoneNumber>
+    <Address>Sara Aharonson 21</Address>
+    <Field>GUI</Field>
+    <EstablishmentDate>1997-08-04T00:00:00</EstablishmentDate>
+    <ContractsNum>0</ContractsNum>
+  </Employer>
+  <Employer>
+    <ID>234</ID>
+    <IsCompany>true</IsCompany>
+    <CompanyName>Google</CompanyName>
+    <PhoneNumber>2347</PhoneNumber>
+    <Address>Here</Address>
+    <Field>Networking</Field>
+    <EstablishmentDate>1999-08-17T00:00:00</EstablishmentDate>
+    <ContractsNum>0</ContractsNum>
+  </Employer>
+  <Employer>
+    <ID>345</ID>
+    <IsCompany>true</IsCompany>
+    <FirstName>ewr</FirstName>
+    <LastName>wer</LastName>
+    <CompanyName>fffff</CompanyName>
+    <PhoneNumber>234</PhoneNumber>
+    <Address>df</Address>
+    <Field>Data_Base</Field>
+    <EstablishmentDate>0017-01-01T00:00:00</EstablishmentDate>
+    <ContractsNum>0</ContractsNum>
+  </Employer>
+  <Employer>
+    <ID>213</ID>
+    <IsCompany>false</IsCompany>
+    <FirstName>qwe</FirstName>
+    <LastName>qwe</LastName>
+    <PhoneNumber>123</PhoneNumber>
+    <Address>qwe</Address>
+    <Field>Networking</Field>
+    <EstablishmentDate>2017-01-01T00:00:00</EstablishmentDate>
+    <ContractsNum>0</ContractsNum>
+  </Employer>
+  <Employer>
+    <ID>-234</ID>
+    <IsCompany>true</IsCompany>
+    <CompanyName>US Gov.</CompanyName>
+    <PhoneNumber>-123</PhoneNumber>
+    <Address>D.C.</Address>
+    <Field>Data_Security</Field>
+    <EstablishmentDate>2017-01-01T00:00:00</EstablishmentDate>
+    <ContractsNum>0</ContractsNum>
+  </Employer>
+</ArrayOfEmployer>

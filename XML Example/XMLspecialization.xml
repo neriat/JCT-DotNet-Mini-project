@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Specializations>
+  <Specialization>
+    <SpecializationID>10000001</SpecializationID>
+    <Field>Mobile_Programing</Field>
+    <SpecializationName>Lion Hunters</SpecializationName>
+    <MinSalary>7</MinSalary>
+    <MaxSalary>10000</MaxSalary>
+  </Specialization>
+  <Specialization>
+    <SpecializationID>10000002</SpecializationID>
+    <Field>Networking</Field>
+    <SpecializationName>mr hacker</SpecializationName>
+    <MinSalary>1</MinSalary>
+    <MaxSalary>50</MaxSalary>
+  </Specialization>
+  <Specialization>
+    <SpecializationID>10000004</SpecializationID>
+    <Field>Server_Side</Field>
+    <SpecializationName>drak side</SpecializationName>
+    <MinSalary>1</MinSalary>
+    <MaxSalary>6</MaxSalary>
+  </Specialization>
+  <Specialization>
+    <SpecializationID>10000006</SpecializationID>
+    <Field>Data_Base</Field>
+    <SpecializationName>jhgasd</SpecializationName>
+    <MinSalary>1</MinSalary>
+    <MaxSalary>57</MaxSalary>
+  </Specialization>
+  <Specialization>
+    <SpecializationID>10000007</SpecializationID>
+    <Field>Mobile_Programing</Field>
+    <SpecializationName>Baking cookies</SpecializationName>
+    <MinSalary>44</MinSalary>
+    <MaxSalary>1000</MaxSalary>
+  </Specialization>
+  <Specialization>
+    <SpecializationID>10000008</SpecializationID>
+    <Field>Data_Security</Field>
+    <SpecializationName>Banana splitter</SpecializationName>
+    <MinSalary>3</MinSalary>
+    <MaxSalary>11</MaxSalary>
+  </Specialization>
+  <Specialization>
+    <SpecializationID>10000009</SpecializationID>
+    <Field>Data_Security</Field>
+    <SpecializationName>Crying baby</SpecializationName>
+    <MinSalary>15</MinSalary>
+    <MaxSalary>54</MaxSalary>
+  </Specialization>
+  <Specialization>
+    <SpecializationID>10000010</SpecializationID>
+    <Field>GUI</Field>
+    <SpecializationName>Eating potatos</SpecializationName>
+    <MinSalary>200</MinSalary>
+    <MaxSalary>400</MaxSalary>
+  </Specialization>
+  <Specialization>
+    <SpecializationID>10000005</SpecializationID>
+    <Field>Data_Security</Field>
+    <SpecializationName>Hack my Duck</SpecializationName>
+    <MinSalary>555.432</MinSalary>
+    <MaxSalary>79995.06</MaxSalary>
+  </Specialization>
+  <Specialization>
+    <SpecializationID>10000003</SpecializationID>
+    <Field>Networking</Field>
+    <SpecializationName>sjcbjjs</SpecializationName>
+    <MinSalary>0</MinSalary>
+    <MaxSalary>400</MaxSalary>
+  </Specialization>
+</Specializations>

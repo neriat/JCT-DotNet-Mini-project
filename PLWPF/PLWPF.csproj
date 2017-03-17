@@ -35,14 +35,18 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="MahApps.Metro, Version=1.4.0.42, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.4.0\lib\net45\MahApps.Metro.dll</HintPath>
+    <Reference Include="MahApps.Metro, Version=1.4.3.0, Culture=neutral, PublicKeyToken=f4fb5a3c4d1e5b4f, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\MahApps.Metro.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="SciChart.Wpf.UI.Transitionz, Version=1.0.4.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SciChart.Wpf.UI.Transitionz.1.0.4\lib\net45\SciChart.Wpf.UI.Transitionz.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\MahApps.Metro.1.4.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+      <HintPath>..\packages\MahApps.Metro.1.4.3\lib\net45\System.Windows.Interactivity.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Xml" />
@@ -69,9 +73,15 @@
     <Compile Include="EmployersWindow.xaml.cs">
       <DependentUpon>EmployersWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Sounds.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sounds.resx</DependentUpon>
+    </Compile>
     <Compile Include="SpecializationWindow.xaml.cs">
       <DependentUpon>SpecializationWindow.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Tools.cs" />
     <Page Include="ContractsWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,6 +132,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Sounds.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Sounds.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -143,22 +157,32 @@
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="engineer.png" />
+    <Resource Include="icon\engineer.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="boss.png" />
+    <Resource Include="icon\boss.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="diploma.png" />
+    <Resource Include="icon\diploma.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="network.png" />
+    <Resource Include="icon\network.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="tools.png" />
+    <Resource Include="icon\tools.png" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="slaveicon.png" />
+    <Resource Include="icon\slaveicon.png" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Sounds\click_01.wav" />
+    <Content Include="Sounds\etc_coin_dropspin.wav" />
+    <Content Include="Sounds\HOLYGRENADE.WAV" />
+    <Content Include="Sounds\pad_glow_hover.wav" />
+    <Content Include="Sounds\sadtrombone.wav" />
+    <Content Include="Sounds\whip.wav" />
+    <Content Include="Sounds\WORMSPRING.WAV" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

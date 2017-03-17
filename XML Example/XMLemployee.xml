@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfEmployee xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Employee>
+    <ID>1238</ID>
+    <FirstName>jesus</FirstName>
+    <LastName>criest</LastName>
+    <BirthDate>0001-01-01T00:00:00</BirthDate>
+    <PhoneNumber>2783946</PhoneNumber>
+    <Address>church</Address>
+    <region>Jerusalem</region>
+    <Degree>PhD</Degree>
+    <Veteran>true</Veteran>
+    <BankAccount>
+      <branch>
+        <bank>
+          <BankID>46</BankID>
+          <BankName>בנק מסד בע"מ</BankName>
+        </bank>
+        <BranchID>548</BranchID>
+        <BranchAddress>אבא הילל 12 </BranchAddress>
+        <BranchCity>רמת גן</BranchCity>
+      </branch>
+      <AccountNumber>24302901</AccountNumber>
+    </BankAccount>
+    <SpecialityID>10000001</SpecialityID>
+    <DealsNum>0</DealsNum>
+  </Employee>
+  <Employee>
+    <ID>123</ID>
+    <FirstName>moses</FirstName>
+    <LastName>cohen</LastName>
+    <BirthDate>0007-01-01T00:00:00</BirthDate>
+    <PhoneNumber>2312</PhoneNumber>
+    <Address>kotel</Address>
+    <region>Jerusalem</region>
+    <Degree>PhD</Degree>
+    <Veteran>true</Veteran>
+    <BankAccount>
+      <branch>
+        <bank>
+          <BankID>4</BankID>
+          <BankName>בנק יהב לעובדי המדינה בע"מ</BankName>
+        </bank>
+        <BranchID>281</BranchID>
+        <BranchAddress>אילת</BranchAddress>
+        <BranchCity>אילת</BranchCity>
+      </branch>
+      <AccountNumber>2341</AccountNumber>
+    </BankAccount>
+    <SpecialityID>10000001</SpecialityID>
+    <DealsNum>0</DealsNum>
+  </Employee>
+  <Employee>
+    <ID>248</ID>
+    <FirstName>mr</FirstName>
+    <LastName>slave</LastName>
+    <BirthDate>1980-08-19T00:00:00</BirthDate>
+    <PhoneNumber>872304</PhoneNumber>
+    <Address>kooki</Address>
+    <region>Jerusalem</region>
+    <Degree>Certificate</Degree>
+    <Veteran>false</Veteran>
+    <BankAccount>
+      <branch>
+        <bank>
+          <BankID>59</BankID>
+          <BankName>שירותי בנק אוטומטיים</BankName>
+        </bank>
+        <BranchID>1</BranchID>
+        <BranchAddress>דרויאנוב 5  ת"ד 11361</BranchAddress>
+        <BranchCity>תל אביב -יפו</BranchCity>
+      </branch>
+      <AccountNumber>1234</AccountNumber>
+    </BankAccount>
+    <SpecialityID>10000005</SpecialityID>
+    <DealsNum>0</DealsNum>
+  </Employee>
+  <Employee>
+    <ID>123876</ID>
+    <FirstName>mr.</FirstName>
+    <LastName>policman</LastName>
+    <BirthDate>1997-01-01T00:00:00</BirthDate>
+    <PhoneNumber>563563</PhoneNumber>
+    <Address>homeless</Address>
+    <region>Central</region>
+    <Degree>Student</Degree>
+    <Veteran>true</Veteran>
+    <BankAccount>
+      <branch>
+        <bank>
+          <BankID>4</BankID>
+          <BankName>בנק יהב לעובדי המדינה בע"מ</BankName>
+        </bank>
+        <BranchID>134</BranchID>
+        <BranchAddress>לוד נתב"ג 1 טרמינל 1 לוד</BranchAddress>
+        <BranchCity>אזור רמלה של"ש</BranchCity>
+      </branch>
+      <AccountNumber>123</AccountNumber>
+    </BankAccount>
+    <SpecialityID>10000007</SpecialityID>
+    <DealsNum>0</DealsNum>
+  </Employee>
+</ArrayOfEmployee>

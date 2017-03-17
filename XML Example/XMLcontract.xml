@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ArrayOfContract xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Contract>
+    <ContractID>10000000</ContractID>
+    <EmployerID>6836478</EmployerID>
+    <EmployeeID>1238</EmployeeID>
+    <IsInterviewed>true</IsInterviewed>
+    <IsSigned>false</IsSigned>
+    <GrossSalary>37</GrossSalary>
+    <NetSalary>0</NetSalary>
+    <StartDate>2017-01-01T00:00:00</StartDate>
+    <EndDate>2018-01-01T00:00:00</EndDate>
+    <WorkingHours>0.5</WorkingHours>
+  </Contract>
+  <Contract>
+    <ContractID>10000001</ContractID>
+    <EmployerID>234</EmployerID>
+    <EmployeeID>123</EmployeeID>
+    <IsInterviewed>true</IsInterviewed>
+    <IsSigned>false</IsSigned>
+    <GrossSalary>28</GrossSalary>
+    <NetSalary>0</NetSalary>
+    <StartDate>2017-01-01T00:00:00</StartDate>
+    <EndDate>2018-01-01T00:00:00</EndDate>
+    <WorkingHours>7</WorkingHours>
+  </Contract>
+</ArrayOfContract>

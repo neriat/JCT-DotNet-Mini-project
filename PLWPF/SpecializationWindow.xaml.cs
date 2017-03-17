@@ -23,58 +23,75 @@ namespace PLWPF
     /// </summary>
     public partial class SpecializationWindow : MetroWindow
     {
-        BL.BL_imp bl = new BL_imp();
+        IBL bl = FactoryBL.GetBL();
+        private Specialization AddSpesialization = new Specialization();
+        private Specialization UpdateSpesialization = new Specialization();
 
-        public List<SpecializationField> field = new List<SpecializationField>();
 
         public SpecializationWindow()
         {
             InitializeComponent();
+            AddTab.DataContext = AddSpesialization;
 
-            field = Enum.GetValues(typeof(SpecializationField)).Cast<SpecializationField>().ToList();
-            ChooseFieldAdd.ItemsSource = field;
-            ChooseFieldUpdate.ItemsSource = field;
+            #region ItemsSources
+            ChooseFieldAdd.ItemsSource = Enum.GetValues(typeof(SpecializationField)).Cast<SpecializationField>().ToList();
+            ChooseFieldUpdate.ItemsSource = Enum.GetValues(typeof(SpecializationField)).Cast<SpecializationField>().ToList();
 
             ChooseSpecializationToRemove.ItemsSource = bl.GetSpecializationList();
             ChooseSpecializationToUpdate.ItemsSource = bl.GetSpecializationList();
+            AllSpecializations.ItemsSource = bl.GetSpecializationList();
+            #endregion
+            #region Groups
+            GroupByField.ItemsSource = bl.GroupSpecializationByField();
+            GroupByMaxSalary.ItemsSource = bl.GroupSpecializationByMaxSalary();
+            GroupByMinSalary.ItemsSource = bl.GroupSpecializationByMinSalary();
+            #endregion
+
+        }
+        /// <summary>
+        /// The function refresh the items that holds outdated lists 
+        /// </summary>
+        private void refresh(bool createNew = true)
+        {
+            #region Groups
+            GroupByField.ItemsSource = bl.GroupSpecializationByField();
+            GroupByMaxSalary.ItemsSource = bl.GroupSpecializationByMaxSalary();
+            GroupByMinSalary.ItemsSource = bl.GroupSpecializationByMinSalary();
+            #endregion
+            AllSpecializations.ItemsSource = bl.GetSpecializationList();
+
+            ChooseSpecializationToRemove.ItemsSource = null;
+            ChooseSpecializationToUpdate.ItemsSource = null;
+            ChooseSpecializationToRemove.ItemsSource = bl.GetSpecializationList();
+            ChooseSpecializationToUpdate.ItemsSource = bl.GetSpecializationList();
+            if (createNew)
+            {
+                AddSpesialization = new Specialization();
+                AddTab.DataContext = AddSpesialization;
+                UpdateSpesialization = new Specialization();
+                UpdateTab.DataContext = UpdateSpesialization;
+            }
         }
 
+        #region window clicks
         private void Add_Click(object sender, RoutedEventArgs e)
         {
             try
             {
-                if (AddSpecializationName.Text == "" || AddMinSalary.Text == "" || AddMaxSalary.Text == "" || ChooseFieldAdd.SelectedIndex == -1)
-                    throw new Exception("All fields must be filled");
+                AddSpesialization.SpecializationID = 0;
+                if (AddSpesialization.SpecializationName == "" || AddSpesialization.SpecializationName == null)
+                    throw new Exception("Specialization must have name!");
+                #region space killer
 
-                Specialization sp = new Specialization();
-                sp.Field = (SpecializationField)ChooseFieldAdd.SelectedItem;
-                try
-                {
-                    sp.MaxSalary = double.Parse(AddMaxSalary.Text);
-                }
-                catch (Exception)
-                {
-                    throw new Exception("Salary must have a numeric value");
-                }
-
-                try
-                {
-                    sp.MinSalary = double.Parse(AddMinSalary.Text);
-                }
-                catch (Exception)
-                {
-                    throw new Exception("Salary must have a numeric value");
-                }
-                if (sp.MinSalary < 0 || sp.MaxSalary < 0)
-                    throw new Exception("Salary can't be negative");
-                sp.SpecializationID = 0;
-                sp.SpecializationName = AddSpecializationName.Text;
-                bl.AddSpecialization(sp);
+                #endregion
+                bl.AddSpecialization(AddSpesialization);
                 this.ShowMessageAsync("New specialization was added successfully!", "Who cares though...");
-
+                refresh();
+                Tools.SoundSuccsses.Play();
             }
             catch (Exception c)
             {
+                Tools.SoundFailed.Play();
                 ErrorFlyout.Header = c.Message;
                 ErrorFlyout.IsOpen = true;
             }
@@ -91,10 +108,11 @@ namespace PLWPF
                 sp = (Specialization)ChooseSpecializationToRemove.SelectedItem;
                 bl.RemoveSpecialization(sp.SpecializationID);
                 this.ShowMessageAsync("Specialization was removed successfully!", "No one liked it anyway");
-
+                refresh(false);
             }
             catch (Exception c)
             {
+                Tools.SoundFailed.Play();
                 ErrorFlyout.Header = c.Message;
                 ErrorFlyout.IsOpen = true;
             }
@@ -106,58 +124,38 @@ namespace PLWPF
             {
                 if (ChooseSpecializationToUpdate.SelectedIndex == -1)
                     throw new Exception("We both know you didn't choose a specialization just to test my patience ");
-
-                Specialization sp = (Specialization)((Specialization)ChooseSpecializationToUpdate.SelectedItem).Clone();
-
-                if (
-                    UpdateSpecializationName.Text == "" &&
-                    ChooseFieldUpdate.SelectedIndex == -1 &&
-                        UpdateMaxSalary.Text == "" &&
-                    UpdateMinSalary.Text == ""
-                    )
-                    throw new Exception("Task failed successfully, you didn't change anything");
-
-
-                if (UpdateSpecializationName.Text != "")
-                    sp.SpecializationName = UpdateSpecializationName.Text;
-
-                if (ChooseFieldUpdate.SelectedIndex != -1)
-                    sp.Field = (SpecializationField)ChooseFieldUpdate.SelectedItem;
-
-                if (UpdateMaxSalary.Text != "")
-                {
-                    try
-                    {
-                        sp.MaxSalary = double.Parse(UpdateMaxSalary.Text);
-                    }
-                    catch (Exception)
-                    {
-                        throw new Exception("Salary must have a numeric value");
-                    }
-                }
-                if (UpdateMinSalary.Text != "")
-                {
-                    try
-                    {
-                        sp.MinSalary = double.Parse(UpdateMinSalary.Text);
-                    }
-                    catch (Exception)
-                    {
-                        throw new Exception("Salary must have a numeric value");
-                    }
-                }
-                if (sp.MinSalary < 0 || sp.MaxSalary < 0)
-                    throw new Exception("Salary can't be negative");
-                bl.UpdateSpecialization(sp);
+                if (UpdateSpesialization.SpecializationName == "")
+                    throw new Exception("Specialization must have name!");
+                bl.UpdateSpecialization(UpdateSpesialization);
                 this.ShowMessageAsync("Specialization was updated successfully!", "Horray!!!");
-
+                refresh();
             }
             catch (Exception c)
             {
+                Tools.SoundFailed.Play();
                 ErrorFlyout.Header = c.Message;
                 ErrorFlyout.IsOpen = true;
 
             }
+        }
+        #endregion
+
+        private void ChooseSpecializationToUpdate_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (ChooseSpecializationToUpdate.SelectedIndex != -1)
+            {
+                UpdateSpesialization = (Specialization)ChooseSpecializationToUpdate.SelectedItem;
+                UpdateTab.DataContext = UpdateSpesialization;
+            }
+        }
+
+        private void Sort_IsCheckedChanged(object sender, EventArgs e)
+        {
+
+            GroupByField.ItemsSource = bl.GroupSpecializationByField(Sort.IsEnabled);
+            GroupByMaxSalary.ItemsSource = bl.GroupSpecializationByMaxSalary(Sort.IsEnabled);
+            GroupByMinSalary.ItemsSource = bl.GroupSpecializationByMinSalary(Sort.IsEnabled);
+
         }
     }
 }
